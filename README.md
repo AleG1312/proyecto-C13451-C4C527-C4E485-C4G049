@@ -66,11 +66,14 @@ Cuadro 1. Análisis sobre el cumplimiento de los requisitos.
 
 | Requisito | Observación | ¿Se cumple? |
 |---|---|---|
-| Multijugador real. | En su versión base son necesarios 2 jugadores. | |
-| Mérito sobre azar. | El azar se encuentra presente en factores como el rol de los participantes (opcional) o las ubicaciones donde aparecen ciertos elementos especiales. Sin embargo, la victoria dependerá de la estrategia individual de cada jugador y su elección en cómo aprovechar los recursos disponibles en el mapa. | |
-| Turnos o tiempo real. | La naturaleza del juego exige que se desenvuelva en tiempo real para ambos participantes. | |
-| Condición de fin explícita. | Se llega al final de una partida cuando el corredor es atrapado o el tiempo acaba (no lo atrapan). El corredor gana si logra escapar, pierde en caso contrario. Gana el jugador que haya ganado más partidas. | |
-| Mínimo de 5 reglas propias que definan la mecánica. | Ver al final del cuadro. | |
-| Identidad propia. | El juego adopta un concepto ya existente: “policías y ladrones”. Sin embargo, las mecánicas introducidas en el juego fueron pensadas por el equipo. | |
+| Multijugador real. | En su versión base son necesarios 2 jugadores. | Sí. |
+| Mérito sobre azar. | El azar se encuentra presente en factores como el rol de los participantes (opcional) o las ubicaciones donde aparecen ciertos elementos especiales. Sin embargo, la victoria dependerá de la estrategia individual de cada jugador y su elección en cómo aprovechar los recursos disponibles en el mapa. | Sí. |
+| Turnos o tiempo real. | La naturaleza del juego exige que se desenvuelva en tiempo real para ambos participantes. | Sí. |
+| Condición de fin explícita. | Se llega al final de una partida cuando el corredor es atrapado o el tiempo acaba (no lo atrapan). El corredor gana si logra escapar, pierde en caso contrario. Gana el jugador que haya ganado más partidas. | Sí. |
+| Mínimo de 5 reglas propias que definan la mecánica. | Ver al final del cuadro. | Sí. |
+| Identidad propia. | El juego adopta un concepto ya existente: “policías y ladrones”. Sin embargo, las mecánicas introducidas en el juego fueron pensadas por el equipo. | Sí. |
 
 ## Sitemap
+Sitemap y flujo de navegación básico.
+
+![Sitemap y flujo de navegación básico.](design/Sitemap.jpeg)
