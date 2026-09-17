@@ -72,3 +72,5 @@ Cuadro 1. Análisis sobre el cumplimiento de los requisitos.
 | Condición de fin explícita. | Se llega al final de una partida cuando el corredor es atrapado o el tiempo acaba (no lo atrapan). El corredor gana si logra escapar, pierde en caso contrario. Gana el jugador que haya ganado más partidas. | |
 | Mínimo de 5 reglas propias que definan la mecánica. | Ver al final del cuadro. | |
 | Identidad propia. | El juego adopta un concepto ya existente: “policías y ladrones”. Sin embargo, las mecánicas introducidas en el juego fueron pensadas por el equipo. | |
+
+## Sitemap
