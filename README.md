@@ -13,7 +13,7 @@ Mariana Núñez Arguedas
 Alejandro Guerra Rodríguez - C13451\
 Felipe Corrales Barrientos - C4E485\
 Jafet Araya Góngora - C4C527\
-Sebastián Herrera - C4G049
+Sebastián Herrera Rivera - C4G049
 
 
 ## Idea general
@@ -77,3 +77,6 @@ Cuadro 1. Análisis sobre el cumplimiento de los requisitos.
 Sitemap y flujo de navegación básico.
 
 ![Sitemap y flujo de navegación básico.](design/Sitemap.jpeg)
+
+## Wireflow
+El wireflow se desarrolló como un prototipo de baja fidelidad que contectaba los wireframes digitales previamente creados. El mismo se puede visualizar en el siguiente enlace: [wireflow](https://www.figma.com/proto/HbBErAGWRE54kvbchXPBum/Wireframes-y-Wireflow?node-id=3-3&p=f&t=Z2KZ14S1FUJYVxws-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3)
