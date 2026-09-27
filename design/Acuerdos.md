@@ -30,6 +30,7 @@ Durante la reunión del equipo se identificaron las principales pantallas necesa
 
 Se acordó que el juego estará basado en **Costa Rica**, específicamente en el contexto de la **Campaña Nacional de 1856-1857**. Como personajes principales se seleccionaron **William Walker** y **Juan Santamaría**, debido a su relación con este acontecimiento histórico.
 
+
 La temática histórica también servirá como referencia para la estética visual del juego y de sus interfaces, buscando que el diseño web mantenga elementos inspirados en este contexto.
 
 ## Referencias
