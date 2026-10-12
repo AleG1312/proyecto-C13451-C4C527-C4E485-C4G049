@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campaña Nacional | Sala de espera</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+</head>
+
+<body>
+  <!-- Encabezado -->
+  <header>
+    <p>
+      <a class="logo" href="index.html">
+        <img src="assets/logo.svg" alt="Menú Principal" width="200" height="40">
+      </a>
+    </p>
+
+    <nav>
+      <ul>
+        <li><a href="index.html" accesskey="i">Inicio</a></li>
+        <li><a href="lobby.html" aria-current="page">Lobby</a></li>
+        <li><a href="reglas.html">Reglas y controles</a></li>
+        <li><a href="creditos.html">Créditos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Encabezado de la sala -->
+    <header class="sala__encabezado">
+      <a href="index.html">
+        <img src="assets/back.png" alt="Salir de la sala" width="40" height="40">
+      </a>
+
+      <h1>Sala de espera</h1>
+
+      <p class="sala__codigo">
+        <strong>ID: ABC123</strong>
+      </p>
+
+      <a class="sala__configurar" href="configuracion-sala.html">
+        <img src="assets/settings.png" alt="Configuración de la sala" width="40" height="40">
+      </a>
+    </header>
+
+    <!-- Información de la partida -->
+    <section class="sala__espera">
+      <h2>Jugadores</h2>
+
+      <ul class="jugadores">
+        <li class="jugador jugador--anfitrion">
+          <img class="jugador__avatar" src="assets/avatar-jugador-campesino.svg" alt="Corredor: Juan Santamaría"
+            width="96" height="96">
+          <p class="jugador__nombre">#1: Jugador-1 <em>(anfitrión)</em></p>
+        </li>
+
+        <li class="jugador jugador--vacio">
+          <img class="jugador__avatar" src="assets/avatar-jugador-filibustero.svg" alt="Atrapador: William Walker"
+            width="96" height="96">
+          <p class="jugador__nombre">#2: <em>(esperando jugador...)</em></p>
+        </li>
+      </ul>
+
+      <figure class="partida__mapa">
+        <img src="assets/mapa-vista-previa.svg" alt="Vista previa del mapa" width="360" height="270">
+      </figure>
+    </section>
+
+    <!-- Pie de la sala -->
+    <section class="sala__pie">
+      <h2>La partida empieza en</h2>
+
+      <p class="cuenta-regresiva__tiempo">
+        <img src="assets/timer.svg" alt="" width="24" height="24">
+        <time datetime="PT30S">0:30</time>
+      </p>
+
+      <form action="juego.html" method="get">
+        <p><button class="iniciar-partida" type="submit">Iniciar partida</button></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Pie de la página-->
+  <footer>
+    <p><small>Proyecto académico del curso Desarrollo de Aplicaciones Web
+        (<abbr title="Curso de Informática 0137">CI-0137</abbr>),
+        Escuela de Ciencias de la Computación e Informática,
+        <abbr title="Universidad de Costa Rica">UCR</abbr>.
+        <time datetime="2026">2026</time>.</small></p>
+
+    <p><small>Consultá los <a href="creditos.html">créditos y atribuciones</a> o el
+        <a href="https://github.com/AleG1312/proyecto-C13451-C4C527-C4E485-C4G049" target="_blank"
+          rel="noopener">repositorio del proyecto.</a></small></p>
+  </footer>
+
+</body>
+
+</html>
