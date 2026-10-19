@@ -1,0 +1,18 @@
+# Editor / IDE settings
+.vscode/
+.vs/
+*.user
+*.suo
+
+# Build results & binaries
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.DS_Store

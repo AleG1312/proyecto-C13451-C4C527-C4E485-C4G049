@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juego</title>
+</head>
+
+<body>
+    <main>
+        <section class="game-top">
+            <time datetime="PT3M00S"> 
+                <img src="assets/clock.png" alt="Time" width="48" height="48" />3:00 min
+            </time>
+            <canvas id="juego" width="960" height="540">
+                En proceso de implementacion.
+            </canvas>
+        </section>
+        <section>
+        <h2>Jugadores</h2>
+
+        <!-- Jugador 1 (izquierda en el diseño) -->
+            <article>
+                <h3>ID del jugador 1</h3>
+                <p>#0001 Chonetico</p>
+
+                <p>
+                    <label for="vida-j1">Vida:</label>
+                    <meter id="vida-j1" min="0" max="100" value="100">100%</meter>
+                </p>
+
+                <p>
+                <img src="assets/gun.png" alt="Barra de Arma" width="70" height="50" />
+                </p>
+            </article>
+
+            <!-- Jugador 2 (derecha en el diseño) -->
+            <article>
+                <h3>ID del jugador 2</h3>
+                <p>#0002 Filibustero</p>
+
+                <p>
+                <label for="vida-j2">Vida:</label>
+                <meter id="vida-j2" min="0" max="100" value="100">100%</meter>
+                </p>
+
+                <p>
+                <img src="assets/shoe.png" alt="Barra de Correr" width="60" height="50" />
+                
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>
