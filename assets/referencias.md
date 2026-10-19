@@ -9,3 +9,7 @@
 | [placeholder-imagen.png](./placeholder-imagen.png) | [https://pngtree.com/so/placeholder](https://pngtree.com/so/placeholder) |
 | [icono-random.png](./icono-random.png) | [enlace](enlace) |
 | [icono-random.png](./icono-random.png) | [enlace](enlace) |
+
+
+
+TODO (Jaffet): Agregar las referencias de las imágenes que utilizó. Ya cambié el ícono de configuración y de flecha para que fuera el mismo.
