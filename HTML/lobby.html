@@ -1,93 +1,75 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Juan Santamaría el juego | Sala de espera</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sala de espera | Juan Santamaría el juego</title>
+  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
 </head>
 
 <body>
-  <!-- Encabezado del sitio: el mismo en todas las páginas menos el juego -->
-  <header>
-    <p class="logo"><a href="index.html">Juan Santamaría el juego</a></p>
-
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="lobby.html" aria-current="page">Lobby</a></li>
-        <li><a href="reglas.html">Reglas y controles</a></li>
-        <li><a href="credits.html">Créditos</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <!-- Encabezado de la sala -->
-    <header class="sala__encabezado">
-      <a href="index.html">
-        <img src="../assets/back.png" alt="Salir de la sala" width="40" height="40">
+    <header>
+      <a class="volver" href="index.html">
+        <img src="../assets/icono-flecha-izquierda.png"
+            alt="Salir de la sala"
+            width="24"
+            height="24" />
       </a>
 
-      <h1>Sala de espera</h1>
+      <p class="codigo-sala"><strong>ID: XXXX</strong></p>
 
-      <p class="sala__codigo">
-        <strong>ID: ABC123</strong>
-      </p>
-
-      <a class="sala__configurar" href="configuracion_sala.html">
-        <img src="../assets/settings.png" alt="Configuración de la sala" width="40" height="40">
+      <a class="configuracion" href="configuracion_sala.html">
+        <img src="../assets/icono-configuracion.png"
+            alt="Configuración de la sala"
+            width="24"
+            height="24" />
       </a>
     </header>
 
-    <!-- Información de la partida -->
-    <section class="sala__espera">
+  <main>
+    <h1>Sala de espera</h1>
+
+    <section class="sala">
       <h2>Jugadores</h2>
+      <img src="../assets/icono-usuario.png"
+          alt="Corredor: Juan Santamaría"
+          class="sala__avatar"
+          width="48"
+          height="48" />
+      <p class="sala__nombre">#1: XXXX</p>
 
-      <ul class="jugadores">
-        <li class="jugador jugador--anfitrion">
-          <img class="jugador__avatar" src="../assets/avatar-jugador-campesino.svg" alt="Corredor: Juan Santamaría"
-            width="96" height="96">
-          <p class="jugador__nombre">#1: Jugador-1 <em>(anfitrión)</em></p>
-        </li>
+      <img src="../assets/placeholder-imagen.png"
+          alt="Vista previa del mapa"
+          class="sala__mapa"
+          width="100"
+          height="100" />
 
-        <li class="jugador jugador--vacio">
-          <img class="jugador__avatar" src="../assets/avatar-jugador-filibustero.svg" alt="Atrapador: William Walker"
-            width="96" height="96">
-          <p class="jugador__nombre">#2: <em>(esperando jugador...)</em></p>
-        </li>
-      </ul>
-
-      <figure class="partida__mapa">
-        <img src="../assets/mapa-vista-previa.svg" alt="Vista previa del mapa" width="360" height="270">
-      </figure>
+      <img src="../assets/icono-usuario.png"
+          alt="Atrapador: William Walker"
+          class="sala__avatar"
+          width="48"
+          height="48" />
+      <p class="sala__nombre">#2: XXXX</p>
     </section>
 
-    <!-- Pie de la sala -->
-    <section class="sala__pie">
+    <section class="cuenta-regresiva">
       <h2>La partida empieza en</h2>
 
-      <p class="cuenta-regresiva__tiempo">
-        <img src="../assets/timer.svg" alt="" width="24" height="24">
-        <time datetime="PT30S">0:30</time>
-      </p>
+      <time datetime="PT30S"> 
+      <img src="../assets/clock.png"
+          alt=""
+          width="24"
+          height="24" />0:30</time>
 
-      <form action="game.html" method="get">
-        <p><button class="iniciar-partida" type="submit">Iniciar partida</button></p>
-      </form>
+      <a href="game.html">Iniciar partida</a>
     </section>
   </main>
 
-  <!-- Pie de la página: el mismo en todas las páginas -->
   <footer>
     <p><small>© <time datetime="2026">2026</time> Juan Santamaría el juego.
         Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
         <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
-
-    <p><small><a href="credits.html">Créditos</a> ·
-        <a href="https://github.com/AleG1312/proyecto-C13451-C4C527-C4E485-C4G049" target="_blank"
-          rel="noopener">Repositorio del proyecto</a></small></p>
   </footer>
 
 </body>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <title>Juego | Juan Santamaría el juego</title>
+</head>
+
+<body>
+    <header>
+        <a class="volver" href="./index.html">
+            <img src="../assets/icono-flecha-izquierda.png"
+                alt="Salir de la partida"
+                width="24"
+                height="24" />
+        </a>
+
+        <a class="configuracion" href="configuracion_sala.html">
+            <img src="../assets/icono-configuracion.png"
+                alt="Configuración de la sala"
+                width="24"
+                height="24" />
+        </a>
+    </header>
+
+    <main>
+        <h1>Partida</h1>
+
+        <!-- Temporal hasta implementar funcionalidad real -->
+        <nav>
+            <ul>
+                <li><a href="./fin_de_ronda.html">Fin de ronda</a></li>
+                <li><a href="./fin_de_partida.html">Fin de partida</a></li>
+            </ul>
+        </nav>
+
+        <section class="marcador">
+            <h2>Marcador</h2>
+
+            <p>Ronda 1 de 3</p>
+
+            <p>
+                <img src="../assets/clock.png"
+                    alt="Tiempo restante"
+                    width="48"
+                    height="48" />
+                <time datetime="PT3M">3:00</time> min
+            </p>
+        </section>
+
+        <canvas id="juego" width="960" height="540">
+            Tu navegador no soporta el elemento canvas, necesario para mostrar el juego.
+        </canvas>
+
+        <section>
+            <h2>Jugadores</h2>
+
+            <!-- Jugador 1 (izquierda en el diseño) -->
+            <article>
+                <h3>Corredor</h3>
+                <p>#0001 Chonetico</p>
+                <p>Rondas ganadas: 0</p>
+
+                <p>
+                    <label for="vida-j1">Vida:</label>
+                    <meter id="vida-j1" min="0" max="100" value="100">100%</meter>
+                </p>
+
+                <p>
+                    <label for="dash-j1">
+                        <img src="../assets/shoe.png"
+                            alt=""
+                            width="60"
+                            height="50" />
+                        Recarga del dash:
+                    </label>
+                    <progress id="dash-j1" max="100" value="100">100%</progress>
+                </p>
+            </article>
+
+            <!-- Jugador 2 (derecha en el diseño) -->
+            <article>
+                <h3>Atrapador</h3>
+                <p>#0002 Filibustero</p>
+                <p>Rondas ganadas: 0</p>
+
+                <p>
+                    <label for="vida-j2">Vida:</label>
+                    <meter id="vida-j2" min="0" max="100" value="100">100%</meter>
+                </p>
+
+                <p>
+                    <label for="arma-j2">
+                        <img src="../assets/gun.png"
+                            alt=""
+                            width="70"
+                            height="50" />
+                        Recarga del arma:
+                    </label>
+                    <progress id="arma-j2" max="100" value="100">100%</progress>
+                </p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p><small>© <time datetime="2026">2026</time> Juan Santamaría el juego.
+            Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
+            <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
+    </footer>
+</body>
+
+</html>

@@ -1,87 +1,44 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Juan Santamaría el juego | Reglas y controles</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reglas y controles | Juan Santamaría el juego</title>
+  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
 </head>
 
 <body>
-  <!-- Encabezado del sitio: el mismo en todas las páginas menos el juego -->
   <header>
-    <p class="logo"><a href="index.html">Juan Santamaría el juego</a></p>
+    <a class="volver" href="index.html">
+      <img src="../assets/icono-flecha-izquierda.png"
+          alt="Volver al inicio"
+          width="24"
+          height="24" />
+    </a>
 
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="lobby.html">Lobby</a></li>
-        <li><a href="reglas.html" aria-current="page">Reglas y controles</a></li>
-        <li><a href="credits.html">Créditos</a></li>
-      </ul>
-    </nav>
+    <img src="../assets/icono-configuracion.png"
+        alt="Configuraciones"
+        class="configuracion"
+        width="24"
+        height="24" />
   </header>
 
   <main>
-    <!-- Encabezado de reglas y controles -->
-    <header class="reglas__encabezado">
-      <a href="index.html">
-        <img src="../assets/back.png" alt="Volver al inicio" width="40" height="40">
-      </a>
+    <h1>Reglas y controles</h1>
 
-      <h1>Reglas y controles</h1>
-    </header>
-
-    <!-- Card de Controles -->
-    <section id="controles">
-      <h2>Controles</h2>
-
-      <dl class="controles">
-        <dt><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> o las flechas</dt>
-        <dd>Moverse por el mapa.</dd>
-
-        <dt><kbd>Espacio</kbd></dt>
-        <dd>Saltar a una plataforma.</dd>
-
-        <dt><kbd>S</kbd> o <kbd>&darr;</kbd> sobre una plataforma</dt>
-        <dd>Descender de la plataforma.</dd>
-
-        <dt><kbd>Shift</kbd> + dirección</dt>
-        <dd>Hacer un <em>dash</em> en esa dirección. Solo el corredor.</dd>
-
-        <dt><kbd>Clic</kbd> izquierdo</dt>
-        <dd>Disparar hacia donde apunta el ratón. Solo el atrapador.</dd>
-
-        <dt><kbd>Esc</kbd></dt>
-        <dd>Abrir el menú de pausa.</dd>
-      </dl>
-    </section>
-
-    <!-- Card de Reglas -->
     <section id="reglas">
       <h2>Reglas</h2>
 
+      <p>Juan Santamaría el juego es para dos jugadores en tiempo real. Uno es
+        el <strong>corredor</strong> y el otro el <strong>atrapador</strong>. La
+        partida se divide en rondas con un tiempo límite: el atrapador gana la
+        ronda si atrapa al corredor antes de que se acabe el tiempo, y el
+        corredor gana si logra escapar hasta el final. Gana la partida quien
+        consiga más rondas.</p>
+
       <ol class="reglas">
-        <li class="regla">
-          <h3>Estructuras del mapa</h3>
-          <p>El mapa tiene tres tipos de estructuras:</p>
-          <dl>
-            <dt>Paredes</dt>
-            <dd>Ningún jugador las puede atravesar. Definen los límites del mapa y
-              también pueden aparecer dentro de él.</dd>
-
-            <dt>Plataformas</dt>
-            <dd>Superficies sobre las que los jugadores pueden estar. Se puede
-              saltar a ellas y bajar de ellas libremente.</dd>
-
-            <dt>Puertas</dt>
-            <dd>Secciones que se pueden atravesar cuando están abiertas y bloquean
-              el paso cuando están cerradas.</dd>
-          </dl>
-        </li>
-
-        <li class="regla">
+        <li class="reglas__item">
           <h3>Dash del corredor</h3>
           <p>El corredor puede hacer un <em>dash</em> (desplazamiento rápido) en
             cualquier dirección sobre el plano del mapa. Después de usarlo debe
@@ -90,23 +47,22 @@
           </p>
         </li>
 
-        <li class="regla">
+        <li class="reglas__item">
           <h3>Disparo del atrapador</h3>
           <p>El atrapador puede disparar un arma. La bala recorre una línea recta de
-            forma instantánea hasta chocar con el corredor o con una pared, así que
-            solo acierta si el corredor está en la trayectoria en el momento del
-            disparo.</p>
-          <ul>
-            <li>Si <strong>acierta</strong>, el corredor se mueve más lento durante
-              unos segundos.</li>
-            <li>Si <strong>falla</strong>, el atrapador se mueve más lento
-              brevemente.</li>
-          </ul>
-          <p>El arma debe recargarse entre disparos. No hay límite de disparos por
-            partida.</p>
+            forma instantánea, así que solo acierta si el corredor está en la trayectoria
+            en el momento del disparo. En caso de acertar, el corredor es afectado con
+            una disminución de su velocidad. El arma tiene un tiempo de recarga entre disparos y no
+            hay límite de disparos por partida.</p>
         </li>
 
-        <li class="regla">
+        <li class="reglas__item">
+          <h3>Paredes</h3>
+          <p>Las paredes definen los límites del mapa y ningún jugador las puede
+            atravesar.</p>
+        </li>
+
+        <li class="reglas__item">
           <h3>Plataformas</h3>
           <p>El mapa habilita plataformas en posiciones específicas. Ambos
             jugadores pueden saltar a ellas y descender de ellas. El
@@ -115,7 +71,7 @@
           </p>
         </li>
 
-        <li class="regla">
+        <li class="reglas__item">
           <h3>Puertas</h3>
           <p>El mapa tiene puertas en distintas posiciones. Si una puerta está
             abierta, ambos jugadores pueden atravesarla, si está cerrada, ninguno
@@ -125,17 +81,43 @@
         </li>
       </ol>
     </section>
+
+    <section id="controles">
+      <h2>Controles</h2>
+
+      <ul class="controles">
+        <li>
+          <strong>A D / &#8592; &#8594;: </strong>
+          Moverse hacia los lados del mapa.
+        </li>
+        <li>
+          <strong>&#8593; / W: </strong>
+          Saltar.
+        </li>
+        <li>
+          <strong>S / &#8595;: </strong> 
+          Descender una plataforma.
+        </li>
+        <li>
+          <strong>Shift + dirección: </strong>
+          Hacer un <em>dash</em> en esa dirección. Solo puede hacerlo el corredor.
+        </li>
+        <li>
+          <strong>Clic izquierdo: </strong>
+          Disparar hacia donde apunta el ratón. Solo puede hacerlo el atrapador.
+        </li>
+        <li>
+          <strong>Esc: </strong>
+          Abrir el menú de pausa.
+        </li>
+      </ul>
+    </section>
   </main>
 
-  <!-- Pie de la página: el mismo en todas las páginas -->
   <footer>
     <p><small>© <time datetime="2026">2026</time> Juan Santamaría el juego.
         Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
         <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
-
-    <p><small><a href="credits.html">Créditos</a> ·
-        <a href="https://github.com/AleG1312/proyecto-C13451-C4C527-C4E485-C4G049" target="_blank"
-          rel="noopener">Repositorio del proyecto</a></small></p>
   </footer>
 
 </body>
