@@ -4,25 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Campaña Nacional | Sala de espera</title>
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <title>Juan Santamaría el juego | Sala de espera</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 
 <body>
-  <!-- Encabezado -->
+  <!-- Encabezado del sitio: el mismo en todas las páginas menos el juego -->
   <header>
-    <p>
-      <a class="logo" href="index.html">
-        <img src="assets/logo.svg" alt="Menú Principal" width="200" height="40">
-      </a>
-    </p>
+    <p class="logo"><a href="index.html">Juan Santamaría el juego</a></p>
 
     <nav>
       <ul>
-        <li><a href="index.html" accesskey="i">Inicio</a></li>
+        <li><a href="index.html">Inicio</a></li>
         <li><a href="lobby.html" aria-current="page">Lobby</a></li>
         <li><a href="reglas.html">Reglas y controles</a></li>
-        <li><a href="creditos.html">Créditos</a></li>
+        <li><a href="credits.html">Créditos</a></li>
       </ul>
     </nav>
   </header>
@@ -31,7 +27,7 @@
     <!-- Encabezado de la sala -->
     <header class="sala__encabezado">
       <a href="index.html">
-        <img src="assets/back.png" alt="Salir de la sala" width="40" height="40">
+        <img src="../assets/back.png" alt="Salir de la sala" width="40" height="40">
       </a>
 
       <h1>Sala de espera</h1>
@@ -40,8 +36,8 @@
         <strong>ID: ABC123</strong>
       </p>
 
-      <a class="sala__configurar" href="configuracion-sala.html">
-        <img src="assets/settings.png" alt="Configuración de la sala" width="40" height="40">
+      <a class="sala__configurar" href="configuracion_sala.html">
+        <img src="../assets/settings.png" alt="Configuración de la sala" width="40" height="40">
       </a>
     </header>
 
@@ -51,20 +47,20 @@
 
       <ul class="jugadores">
         <li class="jugador jugador--anfitrion">
-          <img class="jugador__avatar" src="assets/avatar-jugador-campesino.svg" alt="Corredor: Juan Santamaría"
+          <img class="jugador__avatar" src="../assets/avatar-jugador-campesino.svg" alt="Corredor: Juan Santamaría"
             width="96" height="96">
           <p class="jugador__nombre">#1: Jugador-1 <em>(anfitrión)</em></p>
         </li>
 
         <li class="jugador jugador--vacio">
-          <img class="jugador__avatar" src="assets/avatar-jugador-filibustero.svg" alt="Atrapador: William Walker"
+          <img class="jugador__avatar" src="../assets/avatar-jugador-filibustero.svg" alt="Atrapador: William Walker"
             width="96" height="96">
           <p class="jugador__nombre">#2: <em>(esperando jugador...)</em></p>
         </li>
       </ul>
 
       <figure class="partida__mapa">
-        <img src="assets/mapa-vista-previa.svg" alt="Vista previa del mapa" width="360" height="270">
+        <img src="../assets/mapa-vista-previa.svg" alt="Vista previa del mapa" width="360" height="270">
       </figure>
     </section>
 
@@ -73,27 +69,25 @@
       <h2>La partida empieza en</h2>
 
       <p class="cuenta-regresiva__tiempo">
-        <img src="assets/timer.svg" alt="" width="24" height="24">
+        <img src="../assets/timer.svg" alt="" width="24" height="24">
         <time datetime="PT30S">0:30</time>
       </p>
 
-      <form action="juego.html" method="get">
+      <form action="game.html" method="get">
         <p><button class="iniciar-partida" type="submit">Iniciar partida</button></p>
       </form>
     </section>
   </main>
 
-  <!-- Pie de la página-->
+  <!-- Pie de la página: el mismo en todas las páginas -->
   <footer>
-    <p><small>Proyecto académico del curso Desarrollo de Aplicaciones Web
-        (<abbr title="Curso de Informática 0137">CI-0137</abbr>),
-        Escuela de Ciencias de la Computación e Informática,
-        <abbr title="Universidad de Costa Rica">UCR</abbr>.
-        <time datetime="2026">2026</time>.</small></p>
+    <p><small>© <time datetime="2026">2026</time> Juan Santamaría el juego.
+        Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
+        <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
 
-    <p><small>Consultá los <a href="creditos.html">créditos y atribuciones</a> o el
+    <p><small><a href="credits.html">Créditos</a> ·
         <a href="https://github.com/AleG1312/proyecto-C13451-C4C527-C4E485-C4G049" target="_blank"
-          rel="noopener">repositorio del proyecto.</a></small></p>
+          rel="noopener">Repositorio del proyecto</a></small></p>
   </footer>
 
 </body>
