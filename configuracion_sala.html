@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Configuración de sala | Juan Santamaría el juego</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    </head>
+    <body>
+        <header>
+            <a class="volver" href="./index.html">
+                <img src="assets/icono-flecha-izquierda.png"
+                    alt="regresar"
+                    width="24"
+                    height="24" />
+            </a>
+        </header>
+
+        <main>
+            <h1>Configuración de sala</h1>
+
+            <form action="lobby.html" method="get">
+                <fieldset>
+                    <legend>Elección del mapa</legend>
+
+                    <!-- Cambiar mapa a la izquierda -->
+                    <button type="button">
+                        <img src="assets/icono-flecha-izquierda.png"
+                        alt="Cambiar mapa izquierda"
+                        width="24"
+                        height="24" />
+                    </button>
+                    
+                    <!--Aqui va la imagen del mapa-->
+                    <img src="assets/placeholder-imagen.png"
+                    alt="Mapa seleccionado"
+                    width="24"
+                    height="24" />
+                    
+                    <!-- Cambiar mapa a la derecha -->
+                    <button type="button">
+                        <img src="assets/icono-flecha-derecha.png"
+                        alt="Cambiar mapa derecha"
+                        width="24"
+                        height="24" />
+                    </button>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Configuración de sala</legend>
+
+                    <!-- Solo rondas impares -->
+                    <p>
+                        <label for="rondas">Rondas:</label>
+                        <select id="rondas" name="rondas">
+                            <option value="1">1</option>
+                            <option value="3">3</option>
+                            <option value="5">5</option>
+                            <option value="7">7</option>
+                        </select>
+                    </p>
+
+                    <!-- Duración de ronda -->
+                    <p>
+                        <label for="duracion">Duración de ronda:</label>
+                        <select id="duracion" name="duracion">
+                            <option value="60">60s</option>
+                            <option value="90">90s</option>
+                            <option value="120">120s</option>
+                        </select>
+                    </p>
+                    
+                    <!-- Modalidad -->
+                    <p>
+                        <label for="modalidad">Modalidad:</label>
+                        <select id="modalidad" name="modalidad">
+                            <option value="facil">Fácil</option>
+                            <option value="media">Media</option>
+                            <option value="dificil">Difícil</option>
+                        </select>
+                    </p>
+                </fieldset>
+
+                <button type="submit">Crear sala</button>
+
+            </form>
+        </main>
+
+        <footer>
+            <p><small>© <time datetime="2026">2026</time> Juan Santamaría el juego.
+                Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
+                <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
+        </footer>
+        
+    </body>
+</html>
