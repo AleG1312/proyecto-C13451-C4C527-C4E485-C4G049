@@ -100,6 +100,8 @@ Criterios que deben cumplir las hojas de estilo del proyecto:
 * **Foco visible:** todo elemento interactivo muestra un contorno claro con `:focus-visible`; donde el color del contorno no contraste con el fondo, se cambia.
 * **Movimiento reducido:** las animaciones y transiciones se desactivan dentro de `@media (prefers-reduced-motion: reduce)`.
 
+El foco visible y el movimiento reducido ya están en `css/base.css`, que enlazan todas las páginas. Los estilos de cada pantalla van en otra hoja, enlazada después de esta.
+
 ## Enlace al github pages
 
 https://aleg1312.github.io/proyecto-C13451-C4C527-C4E485-C4G049/

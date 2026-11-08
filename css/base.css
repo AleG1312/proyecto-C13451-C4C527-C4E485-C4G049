@@ -1,0 +1,26 @@
+/* Hoja base: reglas de accesibilidad que aplican a todo el sitio.
+   Todas las páginas la enlazan; los estilos de cada pantalla van aparte. */
+
+:root {
+  /* Color del anillo de foco. Da 6.4:1 sobre blanco; si se cambia o el
+     fondo es oscuro, verificar que tenga al menos 3:1 con el fondo. */
+  --color-foco: #0b57d0;
+}
+
+/* Foco visible: quien navega con teclado debe ver siempre dónde está.
+   :focus-visible lo muestra con teclado pero no al hacer clic. */
+:focus-visible {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 3px;
+}
+
+/* Quien activa "reducir movimiento" en su sistema no recibe animaciones.
+   Este bloque las apaga todas, así no hay que tocar cada regla. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
