@@ -1,10 +1,32 @@
-/* Hoja base: reglas de accesibilidad que aplican a todo el sitio.
+/* Hoja base: fondo del sitio y reglas de accesibilidad que aplican a todo.
    Todas las páginas la enlazan; los estilos de cada pantalla van aparte. */
 
 :root {
-  /* Color del anillo de foco. Da 6.4:1 sobre blanco; si se cambia o el
-     fondo es oscuro, verificar que tenga al menos 3:1 con el fondo. */
-  --color-foco: #0b57d0;
+  --color-fondo: #050f23;
+  --color-texto: #f2f6fa;
+
+  /* Anillo de foco: blanco sobre el fondo oscuro, azul sobre superficies
+     claras (como los diálogos). Ambos tienen más de 3:1 con su fondo. */
+  --color-foco: #fff;
+  --color-foco-claro: #0b57d0;
+}
+
+/* Fondo en pixel art. La capa oscura al 40% asegura que el texto blanco
+   tenga al menos 5.7:1 de contraste incluso sobre las nubes más claras. */
+html {
+  min-height: 100%;
+  color: var(--color-texto);
+  background:
+    linear-gradient(rgb(5 15 35 / 40%), rgb(5 15 35 / 40%)) fixed,
+    url("../assets/fondo-juan-santamaria.png") center / cover no-repeat fixed
+    var(--color-fondo);
+  image-rendering: pixelated;
+}
+
+/* Los enlaces toman el color del texto que los rodea; el subrayado los
+   distingue, así no dependen solo del color. */
+a {
+  color: inherit;
 }
 
 /* Foco visible: quien navega con teclado debe ver siempre dónde está.
@@ -12,6 +34,10 @@
 :focus-visible {
   outline: 3px solid var(--color-foco);
   outline-offset: 3px;
+}
+
+dialog :focus-visible {
+  outline-color: var(--color-foco-claro);
 }
 
 /* Quien activa "reducir movimiento" en su sistema no recibe animaciones.
