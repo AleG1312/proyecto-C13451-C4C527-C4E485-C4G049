@@ -69,18 +69,6 @@
   box-shadow: 0 0.4rem 0 rgb(117 10 14 / 90%);
 }
 
-/* El pie forma una franja estable como la zona inferior del wireframe. */
-body > footer {
-  width: 100%;
-  padding-inline: var(--espacio-sm);
-  border-top: 2px solid var(--color-secundario);
-  background-color: rgb(13 31 66 / 88%);
-}
-
-body > footer p {
-  margin-block: 0;
-}
-
 /* Movimiento temático leve; common.css lo elimina con movimiento reducido. */
 @keyframes bienvenida-flotar {
   from {
