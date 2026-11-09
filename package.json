@@ -4,7 +4,8 @@
   "private": true,
   "description": "Proyecto final del curso CI-0137 Desarrollo de Aplicaciones Web.",
   "scripts": {
-    "lint:css": "stylelint \"**/*.css\" --allow-empty-input"
+    "lint:css": "stylelint \"**/*.css\" --allow-empty-input",
+    "iconos": "node scripts/generar-iconos.mjs"
   },
   "devDependencies": {
     "stylelint": "^17.15.0",
