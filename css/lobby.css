@@ -1,31 +1,6 @@
 /* Sala de espera: composición propia sobre los estilos de common.css.
    Desarrollada con apoyo de Codex y revisada por el equipo. */
 
-/* El encabezado conserva los tres puntos de referencia del wireframe. */
-.lobby-encabezado__volver,
-.lobby-encabezado__configuracion {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  padding: 0.4rem;
-  border: 2px solid var(--color-secundario);
-  border-radius: 50%;
-  background-color: var(--color-superficie);
-  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 35%);
-  transition:
-    filter var(--duracion-transicion) ease,
-    transform var(--duracion-transicion) ease;
-}
-
-.lobby-encabezado__volver img,
-.lobby-encabezado__configuracion img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
 .lobby-encabezado__codigo {
   margin: 0;
   padding: 0.65rem var(--espacio-sm);
@@ -159,35 +134,6 @@
   width: 3rem;
   height: 3rem;
   animation: reloj-pulso 1.5s ease-in-out infinite alternate;
-}
-
-.cuenta-regresiva__inicio {
-  display: inline-block;
-  padding: 0.75rem var(--espacio-md);
-  border-radius: var(--radio-borde);
-  background-color: var(--color-primario);
-  box-shadow: 0 0.3rem 0 rgb(117 10 14 / 90%);
-  font-weight: 700;
-  text-align: center;
-  text-decoration: none;
-  transition:
-    filter var(--duracion-transicion) ease,
-    transform var(--duracion-transicion) ease;
-}
-
-@media (hover: hover) {
-  .lobby-encabezado__volver:hover,
-  .lobby-encabezado__configuracion:hover,
-  .cuenta-regresiva__inicio:hover {
-    filter: brightness(1.15);
-    transform: translateY(-2px);
-  }
-}
-
-.lobby-encabezado__volver:active,
-.lobby-encabezado__configuracion:active,
-.cuenta-regresiva__inicio:active {
-  transform: translateY(1px);
 }
 
 /* Movimiento básico del reloj; common.css lo elimina con movimiento reducido. */

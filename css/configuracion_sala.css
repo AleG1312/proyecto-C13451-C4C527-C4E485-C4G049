@@ -1,29 +1,6 @@
 /* Configuración de sala: composición propia sobre la base de common.css.
    Desarrollada con apoyo de Codex y revisada por el equipo. */
 
-/* El enlace de regreso mantiene la posición y forma propuestas en el diseño. */
-.configuracion-encabezado__volver {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  padding: 0.4rem;
-  border: 2px solid var(--color-secundario);
-  border-radius: 50%;
-  background-color: var(--color-superficie);
-  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 35%);
-  transition:
-    filter var(--duracion-transicion) ease,
-    transform var(--duracion-transicion) ease;
-}
-
-.configuracion-encabezado__volver img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
 .configuracion {
   display: grid;
   gap: var(--espacio-md);
@@ -88,21 +65,12 @@
 }
 
 .selector-mapa__boton {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 3.25rem;
   min-height: 3.25rem;
   padding: 0.55rem;
   border-color: var(--color-texto);
   border-radius: 50%;
   background-color: var(--color-secundario);
-}
-
-.selector-mapa__boton img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
 }
 
 /* Las opciones mantienen etiquetas visibles y controles de ancho uniforme. */
@@ -134,22 +102,7 @@
   grid-area: crear;
   width: min(100%, 20rem);
   justify-self: center;
-  padding: 0.8rem var(--espacio-md);
-  border-color: var(--color-texto);
-  box-shadow: 0 0.35rem 0 rgb(117 10 14 / 90%);
   font-size: 1.15rem;
-  font-weight: 700;
-}
-
-@media (hover: hover) {
-  .configuracion-encabezado__volver:hover {
-    filter: brightness(1.15);
-    transform: translateY(-2px);
-  }
-}
-
-.configuracion-encabezado__volver:active {
-  transform: translateY(1px);
 }
 
 /* Efecto temático de la vista previa; common.css lo quita si se reduce movimiento. */
