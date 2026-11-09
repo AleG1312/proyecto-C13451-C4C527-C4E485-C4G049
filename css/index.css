@@ -12,6 +12,22 @@
   object-fit: contain;
   background-color: var(--color-superficie);
   box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 35%);
+  transition:
+    filter var(--duracion-transicion) ease,
+    transform var(--duracion-transicion) ease;
+}
+
+@media (hover: hover) {
+  .usuario:hover,
+  .configuracion:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+  }
+}
+
+.usuario:active,
+.configuracion:active {
+  transform: translateY(1px);
 }
 
 /* En escritorio, la imagen y el menú forman las dos columnas del wireframe. */
