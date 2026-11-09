@@ -1,0 +1,149 @@
+/* Fin de partida: composición propia sobre la base de common.css. */
+
+/* Medidas propias de esta pantalla. */
+:root {
+  --fin-partida-ancho: 40rem;
+  --fin-partida-escalon: 7rem;
+  --fin-partida-escalon-ganador: 10rem;
+  --fin-partida-duracion-entrada: 500ms;
+}
+
+/* Título, podio y acciones en una columna centrada. */
+.fin-partida {
+  display: grid;
+  grid-template-columns: minmax(0, var(--fin-partida-ancho));
+  gap: var(--espacio-lg);
+  place-content: center;
+}
+
+.fin-partida__titulo {
+  margin: 0;
+  text-align: center;
+  text-shadow: 0.15rem 0.15rem 0 var(--color-primario);
+}
+
+/* Podio: el ganador va primero y los escalones se alinean abajo. */
+.podio {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--espacio-md) var(--espacio-sm);
+  align-items: end;
+}
+
+.podio__titulo,
+.podio__ganador {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: center;
+}
+
+/* El anuncio del ganador va en un panel con borde rojo. */
+.podio__ganador {
+  padding: var(--espacio-sm);
+  border: 3px solid var(--color-primario);
+  border-radius: var(--radio-borde);
+  background-color: var(--color-superficie);
+  font-size: 1.25rem;
+}
+
+/* Cada puesto: nombre, avatar y escalón, de arriba abajo. */
+.puesto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  align-items: center;
+  text-align: center;
+  animation: fin-partida-subir var(--fin-partida-duracion-entrada) ease-out both;
+}
+
+.puesto__nombre {
+  margin: 0;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radio-borde);
+  background-color: var(--color-secundario);
+  font-size: 1.25rem;
+}
+
+/* Avatar dentro de un medallón; su tamaño (48 o 64 px) viene del HTML. */
+.puesto__avatar {
+  box-sizing: content-box;
+  padding: 0.25rem;
+  border: 3px solid var(--color-secundario);
+  border-radius: 50%;
+  background-color: var(--color-superficie);
+}
+
+/* Escalón con el lugar escrito; su altura marca la jerarquía. */
+.puesto__escalon {
+  align-self: stretch;
+  min-height: var(--fin-partida-escalon);
+  padding: var(--espacio-sm) var(--espacio-xs);
+  border: 2px solid var(--color-texto);
+  border-radius: var(--radio-borde) var(--radio-borde) 0 0;
+  background-color: var(--color-secundario);
+  box-shadow: inset 0 -0.5rem 0 rgb(0 0 0 / 25%);
+}
+
+.puesto__lugar,
+.puesto__rondas {
+  margin: 0;
+}
+
+.puesto__lugar {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* El ganador aparece de último, en rojo, con el avatar más grande y el escalón más alto. */
+.puesto--primero {
+  animation-delay: 300ms;
+}
+
+.puesto--primero .puesto__nombre,
+.puesto--primero .puesto__escalon {
+  background-color: var(--color-primario);
+}
+
+.puesto--primero .puesto__avatar {
+  border-color: var(--color-primario);
+}
+
+.puesto--primero .puesto__escalon {
+  min-height: var(--fin-partida-escalon-ganador);
+}
+
+/* Acciones del mismo ancho; pasan a una columna si no caben. */
+.acciones__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--espacio-sm);
+}
+
+.acciones__enlace {
+  width: 100%;
+}
+
+/* "Menú principal" en azul para diferenciarlo de la acción principal. */
+.acciones__enlace--secundario {
+  background-color: var(--color-secundario);
+  box-shadow: 0 0.35rem 0 var(--color-fondo);
+}
+
+/* Los puestos suben al cargar la página. */
+@keyframes fin-partida-subir {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+}
+
+/* En pantallas angostas el texto del escalón se reduce para no partirse. */
+@media (width < 30rem) {
+  .puesto__nombre {
+    font-size: 1.1rem;
+  }
+
+  .puesto__lugar {
+    font-size: 1.25rem;
+  }
+}

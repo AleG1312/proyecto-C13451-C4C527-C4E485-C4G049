@@ -1,0 +1,128 @@
+/* Reglas y controles: composición propia sobre la base de common.css. */
+
+/* Medidas propias de esta pantalla. */
+:root {
+  --reglas-tamano-numero: 2.5rem;
+  --reglas-ancho-tecla: 10.5rem;
+  --reglas-duracion-entrada: 400ms;
+}
+
+/* Título arriba y paneles apilados; en pantallas anchas van lado a lado. */
+main {
+  display: grid;
+  gap: var(--espacio-lg);
+  align-items: start;
+}
+
+main > h1 {
+  margin: 0;
+  text-align: center;
+}
+
+/* Cada sección es un panel opaco para que el texto se lea bien. */
+main > section {
+  padding: var(--espacio-md);
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  background-color: var(--color-superficie);
+  animation: reglas-aparecer var(--reglas-duracion-entrada) ease-out both;
+}
+
+/* El segundo panel aparece un poco después. */
+main > section + section {
+  animation-delay: 150ms;
+}
+
+main > section > h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* Lista de reglas con el número dentro de un círculo rojo. */
+.reglas {
+  display: grid;
+  gap: var(--espacio-md);
+  margin: var(--espacio-md) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: regla;
+}
+
+.reglas__item {
+  display: grid;
+  grid-template-columns: var(--reglas-tamano-numero) minmax(0, 1fr);
+  gap: var(--espacio-xs) var(--espacio-sm);
+  align-items: center;
+  counter-increment: regla;
+}
+
+.reglas__item::before {
+  content: counter(regla) ".";
+  display: grid;
+  place-items: center;
+  height: var(--reglas-tamano-numero);
+  border-radius: 50%;
+  background-color: var(--color-primario);
+  font-weight: bold;
+}
+
+.reglas__item h3 {
+  margin: 0;
+}
+
+/* La descripción ocupa todo el ancho, debajo del número y el título. */
+.reglas__item p {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+/* Lista de controles: cada combinación se dibuja como una tecla. */
+.controles {
+  display: grid;
+  gap: var(--espacio-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.controles strong {
+  display: block;
+  width: fit-content;
+  margin-bottom: var(--espacio-xs);
+  padding: 0.2rem var(--espacio-xs);
+  border: 2px solid var(--color-secundario);
+  border-bottom-width: 4px;
+  border-radius: var(--radio-borde);
+  background-color: var(--color-fondo);
+}
+
+/* Los paneles aparecen subiendo un poco. */
+@keyframes reglas-aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+/* Desde 30rem la tecla va a la izquierda y las descripciones se alinean. */
+@media (width >= 30rem) {
+  .controles li {
+    padding-left: calc(var(--reglas-ancho-tecla) + var(--espacio-sm));
+  }
+
+  .controles strong {
+    float: left;
+    margin: 0 0 0 calc(-1 * (var(--reglas-ancho-tecla) + var(--espacio-sm)));
+  }
+}
+
+/* Desde 64rem los dos paneles van lado a lado. */
+@media (width >= 64rem) {
+  main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  main > h1 {
+    grid-column: 1 / -1;
+  }
+}

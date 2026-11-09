@@ -80,3 +80,42 @@ Sitemap y flujo de navegación básico.
 
 ## Wireflow
 El wireflow se desarrolló como un prototipo de baja fidelidad que contectaba los wireframes digitales previamente creados. El mismo se puede visualizar en el siguiente enlace: [wireflow](https://www.figma.com/proto/HbBErAGWRE54kvbchXPBum/Wireframes-y-Wireflow?node-id=3-3&p=f&t=Z2KZ14S1FUJYVxws-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=3%3A3)
+
+
+## Lint de estilos
+
+Se usa [Stylelint](https://stylelint.io/) con `stylelint-config-standard` y una regla que exige nombres de clase en formato BEM (`bloque__elemento--modificador`).
+
+```bash
+npm install
+npm run lint:css
+```
+
+## Accesibilidad a nivel de estilos
+
+Criterios que deben cumplir las hojas de estilo del proyecto:
+
+* **Contraste:** texto y fondo con al menos 4.5:1 (3:1 para texto grande), nivel AA de WCAG. Cada combinación de colores se verifica con una herramienta de contraste (p. ej. WebAIM Contrast Checker) y se anota junto a la paleta.
+* **No solo color:** turnos, estados y errores se comunican también con texto, ícono o forma, nunca únicamente con un color.
+* **Foco visible:** todo elemento interactivo muestra un contorno claro con `:focus-visible`; donde el color del contorno no contraste con el fondo, se cambia.
+* **Movimiento reducido:** las animaciones y transiciones se desactivan dentro de `@media (prefers-reduced-motion: reduce)`.
+
+El foco visible y el movimiento reducido ya están en `css/common.css`, que enlazan todas las páginas. Los estilos de cada pantalla van en otra hoja, enlazada después de esta.
+
+## Uso de Codex en esta entrega
+
+El equipo utilizó Codex como apoyo durante la etapa de estilos. A través de una
+interacción conversacional, se revisaron los requisitos del avance, la
+estructura existente y los wireframes; también se propusieron y aplicaron
+cambios acotados a la hoja común y a las pantallas de bienvenida, lobby y
+configuración de sala.
+
+Codex apoyó la creación de estilos CSS, la organización de clases BEM, la
+revisión de accesibilidad a nivel de estilos y la ejecución de verificaciones
+como Stylelint y pruebas visuales responsive. El equipo definió la paleta,
+revisó los cambios, comprobó los resultados y mantiene la responsabilidad sobre
+la integración y entrega final.
+
+## Enlace al github pages
+
+https://aleg1312.github.io/proyecto-C13451-C4C527-C4E485-C4G049/

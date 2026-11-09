@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+
+    <!-- Los ajustes de estructura y estilos de esta pantalla se realizaron
+         con apoyo de Codex y fueron revisados por el equipo. -->
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Configuración de sala | National Campaign</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="stylesheet" href="css/common.css" />
+        <link rel="stylesheet" href="css/configuracion_sala.css" />
+    </head>
+    <body>
+        <header class="configuracion-encabezado">
+            <a class="configuracion-encabezado__volver" href="./index.html">
+                <img src="assets/icono-flecha-izquierda.svg"
+                    alt="Regresar al inicio"
+                    width="32"
+                    height="32" />
+            </a>
+        </header>
+
+        <main class="configuracion">
+            <h1 class="configuracion__titulo">Configuración de sala</h1>
+
+            <form class="formulario-sala" action="lobby.html" method="get">
+                <fieldset class="selector-mapa">
+                    <legend class="selector-mapa__titulo">Elección del mapa</legend>
+
+                    <!-- El fieldset se mantiene como bloque para que la leyenda
+                         interrumpa el borde; la rejilla va en el contenido. -->
+                    <div class="selector-mapa__contenido">
+                        <!-- Cambiar mapa a la izquierda -->
+                        <button class="boton-icono selector-mapa__boton selector-mapa__boton--anterior"
+                            type="button" aria-label="Seleccionar mapa anterior">
+                            <img src="assets/icono-flecha-izquierda.svg"
+                            alt=""
+                            width="24"
+                            height="24" />
+                        </button>
+
+                        <!-- Aquí va la imagen del mapa. -->
+                        <img src="assets/placeholder-imagen.svg"
+                            alt="Vista previa del mapa seleccionado"
+                            class="selector-mapa__imagen"
+                            width="100"
+                            height="100" />
+
+                        <!-- Cambiar mapa a la derecha -->
+                        <button class="boton-icono selector-mapa__boton selector-mapa__boton--siguiente"
+                            type="button" aria-label="Seleccionar mapa siguiente">
+                            <img src="assets/icono-flecha-derecha.svg"
+                            alt=""
+                            width="24"
+                            height="24" />
+                        </button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="opciones-sala">
+                    <legend class="opciones-sala__titulo">Configuración de sala</legend>
+
+                    <!-- El fieldset se mantiene como bloque para que la leyenda
+                         interrumpa el borde; la columna va en el contenido. -->
+                    <div class="opciones-sala__contenido">
+                        <!-- Solo rondas impares -->
+                        <p class="opciones-sala__campo">
+                            <label class="opciones-sala__etiqueta" for="rondas">Rondas:</label>
+                            <select class="opciones-sala__control" id="rondas" name="rondas">
+                                <option value="1">1</option>
+                                <option value="3">3</option>
+                                <option value="5">5</option>
+                                <option value="7">7</option>
+                            </select>
+                        </p>
+
+                        <!-- Duración de ronda -->
+                        <p class="opciones-sala__campo">
+                            <label class="opciones-sala__etiqueta" for="duracion">Duración de ronda:</label>
+                            <select class="opciones-sala__control" id="duracion" name="duracion">
+                                <option value="60">60s</option>
+                                <option value="90">90s</option>
+                                <option value="120">120s</option>
+                            </select>
+                        </p>
+
+                        <!-- Modalidad -->
+                        <p class="opciones-sala__campo">
+                            <label class="opciones-sala__etiqueta" for="modalidad">Modalidad:</label>
+                            <select class="opciones-sala__control" id="modalidad" name="modalidad">
+                                <option value="facil">Fácil</option>
+                                <option value="media">Media</option>
+                                <option value="dificil">Difícil</option>
+                            </select>
+                        </p>
+                    </div>
+                </fieldset>
+
+                <button class="boton-principal formulario-sala__crear" type="submit">Crear sala</button>
+            </form>
+        </main>
+
+        <footer>
+            <p><small>© <time datetime="2026">2026</time> National Campaign.
+                Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
+                <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
+        </footer>
+
+    </body>
+</html>
