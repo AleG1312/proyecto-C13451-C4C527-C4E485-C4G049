@@ -169,13 +169,16 @@ button {
   text-decoration: none;
 }
 
+/* 3rem − 2 × 2px de borde − 2 × 0.375rem de relleno = 32px para el icono:
+   el doble exacto de su cuadrícula de 16 × 16, así cada píxel del pixel art
+   mide lo mismo (ver assets/readme.md). */
 .boton-icono {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 3rem;
   height: 3rem;
-  padding: 0.4rem;
+  padding: 0.375rem;
   border: 2px solid var(--color-secundario);
   border-radius: 50%;
   background-color: var(--color-superficie);
