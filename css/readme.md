@@ -15,3 +15,6 @@ Los contrastes fueron revisados con el verificador de contraste de Adobe: https:
 | Blanco | Azul noche | **16.26:1** | Sí |
 | Blanco | Rojo | **5.19:1** | Sí |
 | Blanco | Azul intenso | **7.97:1** | Sí |
+
+
+- Stylelint: aprobado mediante `npm run lint:css`, sin errores ni advertencias.
