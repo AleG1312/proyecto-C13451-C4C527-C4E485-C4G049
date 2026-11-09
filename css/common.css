@@ -1,23 +1,27 @@
-/* Hoja base: fondo del sitio y reglas de accesibilidad que aplican a todo.
+/* Hoja común: fondo del sitio y reglas de accesibilidad que aplican a todo.
    Todas las páginas la enlazan; los estilos de cada pantalla van aparte. */
 
 :root {
-  --color-fondo: #050f23;
-  --color-texto: #f2f6fa;
+  /* Paleta compartida por todas las pantallas. */
+  --color-fondo: #07152f;
+  --color-superficie: #0d1f42;
+  --color-texto: #fff;
+  --color-primario: #d71920;
+  --color-secundario: #164ca8;
 
   /* Anillo de foco: blanco sobre el fondo oscuro, azul sobre superficies
-     claras (como los diálogos). Ambos tienen más de 3:1 con su fondo. */
-  --color-foco: #fff;
-  --color-foco-claro: #0b57d0;
+     claras. Las combinaciones cumplen el contraste AA documentado. */
+  --color-foco: var(--color-texto);
+  --color-foco-claro: var(--color-secundario);
 }
 
-/* Fondo en pixel art. La capa oscura al 40% asegura que el texto blanco
-   tenga al menos 5.7:1 de contraste incluso sobre las nubes más claras. */
+/* La capa azul oscura conserva el fondo en pixel art y mejora la legibilidad
+   del texto blanco sobre las zonas claras de la imagen. */
 html {
   min-height: 100%;
   color: var(--color-texto);
   background:
-    linear-gradient(rgb(5 15 35 / 40%), rgb(5 15 35 / 40%)) fixed,
+    linear-gradient(rgb(7 21 47 / 70%), rgb(7 21 47 / 70%)) fixed,
     url("../assets/fondo-juan-santamaria.png") center / cover no-repeat fixed
     var(--color-fondo);
   image-rendering: pixelated;
