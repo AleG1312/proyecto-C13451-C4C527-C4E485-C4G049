@@ -7,54 +7,58 @@
         <title>Configuración de sala | National Campaign</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link rel="stylesheet" href="css/common.css" />
+        <link rel="stylesheet" href="css/configuracion_sala.css" />
     </head>
     <body>
-        <header>
-            <a class="volver" href="./index.html">
+        <header class="configuracion-encabezado">
+            <a class="configuracion-encabezado__volver" href="./index.html">
                 <img src="assets/icono-flecha-izquierda.png"
-                    alt="regresar"
+                    alt="Regresar al inicio"
                     width="24"
                     height="24" />
             </a>
         </header>
 
-        <main>
-            <h1>Configuración de sala</h1>
+        <main class="configuracion">
+            <h1 class="configuracion__titulo">Configuración de sala</h1>
 
-            <form action="lobby.html" method="get">
-                <fieldset>
-                    <legend>Elección del mapa</legend>
+            <form class="formulario-sala" action="lobby.html" method="get">
+                <fieldset class="selector-mapa">
+                    <legend class="selector-mapa__titulo">Elección del mapa</legend>
 
                     <!-- Cambiar mapa a la izquierda -->
-                    <button type="button">
+                    <button class="selector-mapa__boton selector-mapa__boton--anterior"
+                        type="button" aria-label="Seleccionar mapa anterior">
                         <img src="assets/icono-flecha-izquierda.png"
-                        alt="Cambiar mapa izquierda"
+                        alt=""
                         width="24"
                         height="24" />
                     </button>
-                    
-                    <!--Aqui va la imagen del mapa-->
+
+                    <!-- Aquí va la imagen del mapa. -->
                     <img src="assets/placeholder-imagen.png"
-                    alt="Mapa seleccionado"
-                    width="24"
-                    height="24" />
-                    
+                        alt="Vista previa del mapa seleccionado"
+                        class="selector-mapa__imagen"
+                        width="100"
+                        height="100" />
+
                     <!-- Cambiar mapa a la derecha -->
-                    <button type="button">
+                    <button class="selector-mapa__boton selector-mapa__boton--siguiente"
+                        type="button" aria-label="Seleccionar mapa siguiente">
                         <img src="assets/icono-flecha-derecha.png"
-                        alt="Cambiar mapa derecha"
+                        alt=""
                         width="24"
                         height="24" />
                     </button>
                 </fieldset>
 
-                <fieldset>
-                    <legend>Configuración de sala</legend>
+                <fieldset class="opciones-sala">
+                    <legend class="opciones-sala__titulo">Configuración de sala</legend>
 
                     <!-- Solo rondas impares -->
-                    <p>
-                        <label for="rondas">Rondas:</label>
-                        <select id="rondas" name="rondas">
+                    <p class="opciones-sala__campo">
+                        <label class="opciones-sala__etiqueta" for="rondas">Rondas:</label>
+                        <select class="opciones-sala__control" id="rondas" name="rondas">
                             <option value="1">1</option>
                             <option value="3">3</option>
                             <option value="5">5</option>
@@ -63,19 +67,19 @@
                     </p>
 
                     <!-- Duración de ronda -->
-                    <p>
-                        <label for="duracion">Duración de ronda:</label>
-                        <select id="duracion" name="duracion">
+                    <p class="opciones-sala__campo">
+                        <label class="opciones-sala__etiqueta" for="duracion">Duración de ronda:</label>
+                        <select class="opciones-sala__control" id="duracion" name="duracion">
                             <option value="60">60s</option>
                             <option value="90">90s</option>
                             <option value="120">120s</option>
                         </select>
                     </p>
-                    
+
                     <!-- Modalidad -->
-                    <p>
-                        <label for="modalidad">Modalidad:</label>
-                        <select id="modalidad" name="modalidad">
+                    <p class="opciones-sala__campo">
+                        <label class="opciones-sala__etiqueta" for="modalidad">Modalidad:</label>
+                        <select class="opciones-sala__control" id="modalidad" name="modalidad">
                             <option value="facil">Fácil</option>
                             <option value="media">Media</option>
                             <option value="dificil">Difícil</option>
@@ -83,8 +87,7 @@
                     </p>
                 </fieldset>
 
-                <button type="submit">Crear sala</button>
-
+                <button class="formulario-sala__crear" type="submit">Crear sala</button>
             </form>
         </main>
 
@@ -93,6 +96,6 @@
                 Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
                 <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
         </footer>
-        
+
     </body>
 </html>

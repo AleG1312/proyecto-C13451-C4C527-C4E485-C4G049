@@ -1,0 +1,206 @@
+/* Configuración de sala: composición propia sobre la base de common.css. */
+
+/* El enlace de regreso mantiene la posición y forma propuestas en el diseño. */
+.configuracion-encabezado__volver {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.4rem;
+  border: 2px solid var(--color-secundario);
+  border-radius: 50%;
+  background-color: var(--color-superficie);
+  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 35%);
+  transition:
+    filter var(--duracion-transicion) ease,
+    transform var(--duracion-transicion) ease;
+}
+
+.configuracion-encabezado__volver img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.configuracion {
+  display: grid;
+  gap: var(--espacio-md);
+  align-content: center;
+}
+
+.configuracion__titulo {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+    0.15rem 0.15rem 0 var(--color-primario),
+    0 0.4rem 0.8rem rgb(0 0 0 / 50%);
+}
+
+/* El formulario replica las dos columnas del wireframe: mapa y opciones. */
+.formulario-sala {
+  display: grid;
+  grid-template-areas:
+    "mapa opciones"
+    "crear opciones";
+  grid-template-columns: minmax(18rem, 1.15fr) minmax(17rem, 0.85fr);
+  gap: var(--espacio-md) clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.selector-mapa,
+.opciones-sala {
+  margin: 0;
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  background-color: rgb(13 31 66 / 92%);
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 40%);
+}
+
+.selector-mapa {
+  display: grid;
+  grid-area: mapa;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--espacio-sm);
+  align-items: center;
+  padding: var(--espacio-md);
+}
+
+.selector-mapa__titulo,
+.opciones-sala__titulo {
+  padding-inline: var(--espacio-xs);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.selector-mapa__imagen {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 0.25rem solid var(--color-texto);
+  border-radius: var(--radio-borde);
+  object-fit: cover;
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 45%);
+  animation: mapa-resplandor 2.5s ease-in-out infinite alternate;
+}
+
+.selector-mapa__boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  min-height: 3.25rem;
+  padding: 0.55rem;
+  border-color: var(--color-texto);
+  border-radius: 50%;
+  background-color: var(--color-secundario);
+}
+
+.selector-mapa__boton img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Las opciones mantienen etiquetas visibles y controles de ancho uniforme. */
+.opciones-sala {
+  display: flex;
+  grid-area: opciones;
+  flex-direction: column;
+  gap: var(--espacio-md);
+  padding: var(--espacio-md);
+}
+
+.opciones-sala__campo {
+  display: grid;
+  gap: var(--espacio-xs);
+  margin: 0;
+}
+
+.opciones-sala__etiqueta {
+  font-weight: 700;
+}
+
+.opciones-sala__control {
+  width: 100%;
+  min-height: 2.75rem;
+  cursor: pointer;
+}
+
+.formulario-sala__crear {
+  grid-area: crear;
+  width: min(100%, 20rem);
+  justify-self: center;
+  padding: 0.8rem var(--espacio-md);
+  border-color: var(--color-texto);
+  box-shadow: 0 0.35rem 0 rgb(117 10 14 / 90%);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+@media (hover: hover) {
+  .configuracion-encabezado__volver:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+  }
+}
+
+.configuracion-encabezado__volver:active {
+  transform: translateY(1px);
+}
+
+/* Efecto temático de la vista previa; common.css lo quita si se reduce movimiento. */
+@keyframes mapa-resplandor {
+  from {
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 45%);
+  }
+
+  to {
+    box-shadow: 0 0.75rem 1.5rem rgb(22 76 168 / 75%);
+  }
+}
+
+/* En tablet y móvil, cada bloque ocupa una fila completa. */
+@media (width <= 48rem) {
+  .formulario-sala {
+    grid-template-areas:
+      "mapa"
+      "opciones"
+      "crear";
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .selector-mapa,
+  .opciones-sala {
+    width: min(100%, 38rem);
+    justify-self: center;
+  }
+}
+
+@media (width <= 30rem) {
+  .configuracion-encabezado__volver {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .selector-mapa {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .selector-mapa__imagen {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .selector-mapa__boton {
+    width: 100%;
+    border-radius: var(--radio-borde);
+  }
+
+  .selector-mapa__boton img {
+    width: 2rem;
+    height: 2rem;
+  }
+}
