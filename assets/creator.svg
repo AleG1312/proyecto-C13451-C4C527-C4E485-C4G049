@@ -1,0 +1,8 @@
+<!-- Generado por scripts/generar-iconos.mjs; edite la cuadrícula allí. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <path fill="#5e5468" d="M7 2h3v1h-3zM6 3h1v1h-1zM10 3h1v1h-1zM5 4h1v1h-1zM11 4h1v1h-1zM5 5h1v1h-1zM11 5h1v1h-1zM5 6h1v1h-1zM11 6h1v1h-1zM5 7h1v1h-1zM11 7h1v1h-1zM5 8h1v1h-1zM11 8h1v1h-1zM6 9h1v1h-1zM10 9h1v1h-1zM7 10h3v1h-3zM5 11h2v1h-2zM10 11h2v1h-2zM3 13h1v1h-1zM13 13h1v1h-1zM3 14h11v1h-11z"/>
+  <path fill="#a8e61d" d="M7 3h3v1h-3zM6 4h2v1h-2zM9 4h2v1h-2zM6 5h1v1h-1zM10 5h1v1h-1zM6 6h1v1h-1zM10 6h1v1h-1zM6 7h1v1h-1zM10 7h1v1h-1zM6 8h1v1h-1zM10 8h1v1h-1zM7 9h3v1h-3zM7 11h3v1h-3zM5 12h7v1h-7zM4 13h9v1h-9z"/>
+  <path fill="#d4f7c4" d="M8 4h1v1h-1zM8 5h1v1h-1zM7 6h3v1h-3zM8 7h1v1h-1z"/>
+  <path fill="#000000" d="M7 5h1v1h-1zM9 5h1v1h-1zM7 7h1v1h-1zM9 7h1v1h-1zM7 8h3v1h-3z"/>
+  <path fill="#444444" d="M4 12h1v1h-1zM12 12h1v1h-1z"/>
+</svg>

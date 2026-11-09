@@ -1,69 +1,83 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 
+<!-- Los ajustes de estructura y estilos de esta pantalla se realizaron con
+     apoyo de Codex y fueron revisados por el equipo. -->
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sala de espera | National Campaign</title>
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/lobby.css" />
 </head>
 
 <body>
-    <header>
-      <a class="volver" href="index.html">
-        <img src="assets/icono-flecha-izquierda.png"
+    <header class="lobby-encabezado">
+      <a class="boton-icono lobby-encabezado__volver" href="index.html">
+        <img src="assets/icono-flecha-izquierda.svg"
             alt="Salir de la sala"
-            width="24"
-            height="24" />
+            width="32"
+            height="32" />
       </a>
 
-      <p class="codigo-sala"><strong>ID: XXXX</strong></p>
+      <p class="lobby-encabezado__codigo"><strong>ID: XXXX</strong></p>
 
-      <a class="configuracion" href="configuracion_sala.html">
-        <img src="assets/icono-configuracion.png"
+      <a class="boton-icono lobby-encabezado__configuracion" href="configuracion_sala.html">
+        <img src="assets/icono-configuracion.svg"
             alt="Configuración de la sala"
-            width="24"
-            height="24" />
+            width="32"
+            height="32" />
       </a>
     </header>
 
-  <main>
-    <h1>Sala de espera</h1>
+  <main class="lobby">
+    <h1 class="lobby__titulo">Sala de espera</h1>
 
     <section class="sala">
-      <h2>Jugadores</h2>
-      <img src="assets/icono-usuario.png"
-          alt="Corredor: Juan Santamaría"
-          class="sala__avatar"
-          width="48"
-          height="48" />
-      <p class="sala__nombre">#1: XXXX</p>
+      <h2 class="sala__titulo">Jugadores</h2>
 
-      <img src="assets/placeholder-imagen.png"
+      <article class="jugador jugador--corredor">
+        <h3 class="jugador__nombre">#1: XXXX</h3>
+        <img src="assets/icono-usuario.svg"
+            alt=""
+            class="jugador__avatar"
+            width="48"
+            height="48" />
+        <p class="jugador__rol">Corredor: Juan Santamaría</p>
+      </article>
+
+      <img src="assets/placeholder-imagen.svg"
           alt="Vista previa del mapa"
           class="sala__mapa"
-          width="100"
-          height="100" />
+          width="96"
+          height="96" />
 
-      <img src="assets/icono-usuario.png"
-          alt="Atrapador: William Walker"
-          class="sala__avatar"
-          width="48"
-          height="48" />
-      <p class="sala__nombre">#2: XXXX</p>
+      <article class="jugador jugador--atrapador">
+        <h3 class="jugador__nombre">#2: XXXX</h3>
+        <img src="assets/icono-usuario.svg"
+            alt=""
+            class="jugador__avatar"
+            width="48"
+            height="48" />
+        <p class="jugador__rol">Atrapador: William Walker</p>
+      </article>
     </section>
 
     <section class="cuenta-regresiva">
-      <h2>La partida empieza en</h2>
+      <h2 class="cuenta-regresiva__titulo">La partida empieza en</h2>
 
-      <time datetime="PT30S"> 
-      <img src="assets/clock.png"
-          alt=""
-          width="24"
-          height="24" />0:30</time>
+      <time class="cuenta-regresiva__tiempo" datetime="PT30S">
+        <img src="assets/clock.svg"
+            alt=""
+            class="cuenta-regresiva__icono"
+            width="32"
+            height="32" />
+        <span>0:30</span>
+      </time>
 
-      <a href="game.html">Iniciar partida</a>
+      <a class="boton-principal cuenta-regresiva__inicio" href="game.html">Iniciar partida</a>
     </section>
   </main>
 

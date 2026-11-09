@@ -100,7 +100,21 @@ Criterios que deben cumplir las hojas de estilo del proyecto:
 * **Foco visible:** todo elemento interactivo muestra un contorno claro con `:focus-visible`; donde el color del contorno no contraste con el fondo, se cambia.
 * **Movimiento reducido:** las animaciones y transiciones se desactivan dentro de `@media (prefers-reduced-motion: reduce)`.
 
-El foco visible y el movimiento reducido ya están en `css/base.css`, que enlazan todas las páginas. Los estilos de cada pantalla van en otra hoja, enlazada después de esta.
+El foco visible y el movimiento reducido ya están en `css/common.css`, que enlazan todas las páginas. Los estilos de cada pantalla van en otra hoja, enlazada después de esta.
+
+## Uso de Codex en esta entrega
+
+El equipo utilizó Codex como apoyo durante la etapa de estilos. A través de una
+interacción conversacional, se revisaron los requisitos del avance, la
+estructura existente y los wireframes; también se propusieron y aplicaron
+cambios acotados a la hoja común y a las pantallas de bienvenida, lobby y
+configuración de sala.
+
+Codex apoyó la creación de estilos CSS, la organización de clases BEM, la
+revisión de accesibilidad a nivel de estilos y la ejecución de verificaciones
+como Stylelint y pruebas visuales responsive. El equipo definió la paleta,
+revisó los cambios, comprobó los resultados y mantiene la responsabilidad sobre
+la integración y entrega final.
 
 ## Enlace al github pages
 

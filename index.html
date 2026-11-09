@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 
+<!-- Los ajustes de estructura y estilos de esta pantalla se realizaron con
+     apoyo de Codex y fueron revisados por el equipo. -->
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio | National Campaign</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
     <header>
         <!-- TODO: Conectar con pantalla real -->
-        <img src="assets/icono-usuario.png"
+        <img src="assets/icono-usuario.svg"
         alt="Icono de usuario"
-        class="usuario"
-        width="24"
-        height="24" />
+        class="usuario animacion-interactiva"
+        width="32"
+        height="32" />
 
         <!-- TODO: Conectar con pantalla real -->
-        <img src="assets/icono-configuracion.png"
+        <img src="assets/icono-configuracion.svg"
         alt="Configuraciones"
-        class="configuracion"
-        width="24"
-        height="24" />
+        class="configuracion animacion-interactiva"
+        width="32"
+        height="32" />
     </header>
 
-    <main>
-        <h1>National Campaign</h1>
+    <main class="inicio">
+        <h1 class="inicio__titulo">National Campaign</h1>
 
-        <img src="assets/placeholder-imagen.png"
+        <img src="assets/placeholder-imagen.svg"
         alt="Imagen de bienvenida"
-        width="40"
-        height="40" />
+        class="inicio__imagen"
+        width="48"
+        height="48" />
 
         <!-- nav usado dentro de main por el estilo de menú de videojuego-->
-        <nav>
-            <ul>
-                <li><a href="./configuracion_sala.html">Crear sala</a></li>
-                <li><a href="./lobby.html">Unirme a sala</a></li>
-                <li><a href="./reglas.html">Reglas y controles</a></li>
-                <li><a href="./credits.html">Créditos</a></li>
+        <nav class="menu-principal" aria-label="Menú principal">
+            <ul class="menu-principal__lista">
+                <li class="menu-principal__item">
+                    <a class="boton-principal menu-principal__enlace menu-principal__enlace--principal"
+                        href="./configuracion_sala.html">Crear sala</a>
+                </li>
+                <li class="menu-principal__item">
+                    <a class="menu-principal__enlace" href="./lobby.html">Unirme a sala</a>
+                </li>
+                <li class="menu-principal__item">
+                    <a class="menu-principal__enlace" href="./reglas.html">Reglas y controles</a>
+                </li>
+                <li class="menu-principal__item">
+                    <a class="menu-principal__enlace" href="./credits.html">Créditos</a>
+                </li>
             </ul>
         </nav>
     </main>
