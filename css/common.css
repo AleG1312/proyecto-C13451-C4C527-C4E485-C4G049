@@ -1,5 +1,7 @@
 /* Hoja común: fondo del sitio y reglas de accesibilidad que aplican a todo.
-   Todas las páginas la enlazan; los estilos de cada pantalla van aparte. */
+   La consolidación de esta base se realizó con apoyo de Codex y fue revisada
+   por el equipo. Todas las páginas la enlazan; los estilos de cada pantalla
+   van aparte. */
 
 :root {
   /* Paleta compartida por todas las pantallas. */

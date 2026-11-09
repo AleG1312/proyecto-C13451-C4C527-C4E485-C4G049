@@ -102,6 +102,20 @@ Criterios que deben cumplir las hojas de estilo del proyecto:
 
 El foco visible y el movimiento reducido ya están en `css/common.css`, que enlazan todas las páginas. Los estilos de cada pantalla van en otra hoja, enlazada después de esta.
 
+## Uso de Codex en esta entrega
+
+El equipo utilizó Codex como apoyo durante la etapa de estilos. A través de una
+interacción conversacional, se revisaron los requisitos del avance, la
+estructura existente y los wireframes; también se propusieron y aplicaron
+cambios acotados a la hoja común y a las pantallas de bienvenida, lobby y
+configuración de sala.
+
+Codex apoyó la creación de estilos CSS, la organización de clases BEM, la
+revisión de accesibilidad a nivel de estilos y la ejecución de verificaciones
+como Stylelint y pruebas visuales responsive. El equipo definió la paleta,
+revisó los cambios, comprobó los resultados y mantiene la responsabilidad sobre
+la integración y entrega final.
+
 ## Enlace al github pages
 
 https://aleg1312.github.io/proyecto-C13451-C4C527-C4E485-C4G049/
