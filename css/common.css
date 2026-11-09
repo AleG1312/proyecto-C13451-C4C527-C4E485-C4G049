@@ -9,10 +9,25 @@
   --color-primario: #d71920;
   --color-secundario: #164ca8;
 
-  /* Anillo de foco: blanco sobre el fondo oscuro, azul sobre superficies
-     claras. Las combinaciones cumplen el contraste AA documentado. */
+  /* Valores reutilizables para mantener uniformes las pantallas. */
+  --espacio-xs: 0.5rem;
+  --espacio-sm: 1rem;
+  --espacio-md: 1.5rem;
+  --espacio-lg: 2rem;
+  --radio-borde: 0.5rem;
+  --ancho-contenido: 75rem;
+  --duracion-transicion: 150ms;
+
+  /* El foco blanco contrasta con los cuatro fondos de la paleta según las
+     mediciones documentadas en css/readme.md. */
   --color-foco: var(--color-texto);
-  --color-foco-claro: var(--color-secundario);
+}
+
+/* Modelo de caja predecible para que bordes y rellenos no causen desbordes. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 /* La capa azul oscura conserva el fondo en pixel art y mejora la legibilidad
@@ -27,10 +42,169 @@ html {
   image-rendering: pixelated;
 }
 
+/* Estructura común: el contenido ocupa al menos la altura de la ventana y el
+   pie se mantiene después del contenido, incluso en páginas cortas. */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+body > header,
+body > main,
+body > footer {
+  width: min(calc(100% - var(--espacio-lg)), var(--ancho-contenido));
+  margin-inline: auto;
+}
+
+body > header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-sm);
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4rem;
+  padding-block: var(--espacio-sm);
+}
+
+body > main {
+  flex: 1;
+  padding-block: var(--espacio-sm) var(--espacio-lg);
+}
+
+body > footer {
+  padding-block: var(--espacio-sm);
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+/* Los medios conservan su proporción y no exceden el contenedor disponible. */
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+canvas {
+  display: block;
+}
+
 /* Los enlaces toman el color del texto que los rodea; el subrayado los
    distingue, así no dependen solo del color. */
 a {
   color: inherit;
+}
+
+/* Los menús de navegación se presentan como grupos de acciones. La posición
+   concreta de cada menú corresponde a la hoja propia de su pantalla. */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.65rem var(--espacio-sm);
+  border-radius: var(--radio-borde);
+  color: var(--color-texto);
+  background-color: var(--color-secundario);
+  text-decoration: none;
+}
+
+/* Controles uniformes y con un área cómoda para ratón o pantalla táctil. */
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+  font: inherit;
+}
+
+button {
+  min-height: 2.75rem;
+  padding: 0.65rem var(--espacio-sm);
+  border: 2px solid transparent;
+  border-radius: var(--radio-borde);
+  color: var(--color-texto);
+  background-color: var(--color-primario);
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  padding: 0.65rem;
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  color: var(--color-texto);
+  background-color: var(--color-superficie);
+}
+
+fieldset {
+  min-width: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* El diálogo usa una superficie oscura para conservar el contraste del texto
+   y limita su tamaño para funcionar en pantallas pequeñas. */
+dialog {
+  width: min(calc(100% - var(--espacio-lg)), 48rem);
+  max-height: calc(100vh - var(--espacio-lg));
+  padding: var(--espacio-md);
+  overflow: auto;
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  color: var(--color-texto);
+  background-color: var(--color-superficie);
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 65%);
+}
+
+/* Efectos breves para comunicar que una acción responde al usuario. */
+button,
+nav a {
+  transition:
+    filter var(--duracion-transicion) ease,
+    transform var(--duracion-transicion) ease;
+}
+
+@media (hover: hover) {
+  button:hover,
+  nav a:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+  }
+}
+
+button:active,
+nav a:active {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  filter: grayscale(1);
+  opacity: 0.7;
 }
 
 /* Foco visible: quien navega con teclado debe ver siempre dónde está.
@@ -38,10 +212,6 @@ a {
 :focus-visible {
   outline: 3px solid var(--color-foco);
   outline-offset: 3px;
-}
-
-dialog :focus-visible {
-  outline-color: var(--color-foco-claro);
 }
 
 /* Quien activa "reducir movimiento" en su sistema no recibe animaciones.
