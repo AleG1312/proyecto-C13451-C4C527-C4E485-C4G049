@@ -1,6 +1,41 @@
 /* Configuración de sala: composición propia sobre la base de common.css.
    Desarrollada con apoyo de Codex y revisada por el equipo. */
 
+/* El botón superior de regreso replica el de index.html, fin_de_ronda.html y
+   game.html: la imagen interior es el botón circular redondeado (borde,
+   fondo y sombra propios) y el enlace solo aporta la transición de
+   interacción. */
+.configuracion-encabezado__volver img {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.35rem;
+  border: 2px solid var(--color-secundario);
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: var(--color-superficie);
+  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 35%);
+}
+
+.configuracion-encabezado__volver {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    filter var(--duracion-transicion) ease,
+    transform var(--duracion-transicion) ease;
+}
+
+@media (hover: hover) {
+  .configuracion-encabezado__volver:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+  }
+}
+
+.configuracion-encabezado__volver:active {
+  transform: translateY(1px);
+}
+
 .configuracion {
   display: grid;
   gap: var(--espacio-md);
@@ -28,9 +63,12 @@
   align-items: start;
 }
 
+/* Las cajas se mantienen como fieldset en bloque para que la leyenda
+   interrumpa el borde superior; el acomodo interno va en el contenido. */
 .selector-mapa,
 .opciones-sala {
   margin: 0;
+  padding: var(--espacio-md);
   border: 2px solid var(--color-secundario);
   border-radius: var(--radio-borde);
   background-color: rgb(13 31 66 / 92%);
@@ -38,20 +76,28 @@
 }
 
 .selector-mapa {
-  display: grid;
   grid-area: mapa;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: var(--espacio-sm);
-  align-items: center;
-  padding: var(--espacio-md);
 }
 
+/* La leyenda se ajusta al texto y se centra, interrumpiendo el borde de la
+   caja, como "Resumen de ronda" en fin_de_ronda.html. */
 .selector-mapa__titulo,
 .opciones-sala__titulo {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
   padding-inline: var(--espacio-xs);
   font-size: 1.25rem;
   font-weight: 700;
   text-align: center;
+}
+
+/* Rejilla interna del selector de mapa: flecha, imagen y flecha. */
+.selector-mapa__contenido {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: var(--espacio-sm);
+  align-items: center;
 }
 
 .selector-mapa__imagen {
@@ -64,22 +110,30 @@
   animation: mapa-resplandor 2.5s ease-in-out infinite alternate;
 }
 
+/* Los botones de cambio de mapa conservan el aspecto estándar de
+   .boton-icono de common.css, como el resto de botones de icono. */
 .selector-mapa__boton {
   width: 3.25rem;
   min-height: 3.25rem;
   padding: 0.55rem;
-  border-color: var(--color-texto);
+}
+
+/* La imagen interior de esos botones también queda redondeada en círculo,
+   como la de los demás botones de icono. La imagen grande del mapa sigue
+   siendo un squircle (.selector-mapa__imagen). */
+.selector-mapa__boton img {
   border-radius: 50%;
-  background-color: var(--color-secundario);
 }
 
 /* Las opciones mantienen etiquetas visibles y controles de ancho uniforme. */
 .opciones-sala {
-  display: flex;
   grid-area: opciones;
+}
+
+.opciones-sala__contenido {
+  display: flex;
   flex-direction: column;
   gap: var(--espacio-md);
-  padding: var(--espacio-md);
 }
 
 .opciones-sala__campo {
@@ -98,10 +152,13 @@
   cursor: pointer;
 }
 
+/* El botón principal "Crear sala" conserva el borde transparente del botón
+   principal de index.html, en lugar del borde blanco de .boton-principal. */
 .formulario-sala__crear {
   grid-area: crear;
   width: min(100%, 20rem);
   justify-self: center;
+  border-color: transparent;
   font-size: 1.15rem;
 }
 
@@ -134,12 +191,12 @@
 }
 
 @media (width <= 30rem) {
-  .configuracion-encabezado__volver {
+  .configuracion-encabezado__volver img {
     width: 2.5rem;
     height: 2.5rem;
   }
 
-  .selector-mapa {
+  .selector-mapa__contenido {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
