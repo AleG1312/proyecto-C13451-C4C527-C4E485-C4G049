@@ -1,0 +1,200 @@
+/* Créditos: composición propia sobre la base de common.css. */
+
+/* Medidas propias, la foto mide 64 px, cuatro veces su cuadrícula de 16. */
+:root {
+  --creditos-ancho-lista: 50rem;
+  --creditos-tamano-foto: 4rem;
+  --creditos-duracion-entrada: 400ms;
+}
+
+/* Título e introducción centrados. */
+main > h1,
+main > h1 + p {
+  text-align: center;
+}
+
+main > h1 {
+  margin-block: 0 var(--espacio-xs);
+}
+
+/* Lista de integrantes en una columna centrada. */
+.integrantes {
+  display: grid;
+  gap: var(--espacio-md);
+  max-width: var(--creditos-ancho-lista);
+  margin: var(--espacio-lg) auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tarjeta: foto a la izquierda; nombre y rol a la derecha. */
+.integrante {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: var(--espacio-md);
+  align-items: center;
+  padding: var(--espacio-sm) var(--espacio-md);
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  background-color: var(--color-superficie);
+  animation: creditos-aparecer var(--creditos-duracion-entrada) ease-out both;
+}
+
+/* Las tarjetas entran una tras otra. */
+.integrante:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.integrante:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+.integrante:nth-child(4) {
+  animation-delay: 300ms;
+}
+
+/* Foto en un medallón en sepia que recupera el color al pasar el puntero. */
+.integrante__foto {
+  grid-row: span 2;
+  box-sizing: content-box;
+  width: var(--creditos-tamano-foto);
+  height: var(--creditos-tamano-foto);
+  padding: 0.25rem;
+  border: 3px solid var(--color-primario);
+  border-radius: 50%;
+  background-color: var(--color-fondo);
+  filter: sepia(80%);
+  transition:
+    filter var(--duracion-transicion) ease,
+    transform var(--duracion-transicion) ease;
+}
+
+@media (hover: hover) {
+  .integrante:hover .integrante__foto {
+    filter: none;
+    transform: scale(1.08) rotate(-4deg);
+  }
+}
+
+.integrante__nombre {
+  align-self: end;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.integrante__rol {
+  align-self: start;
+  margin: 0;
+}
+
+/* Botón "Recursos utilizados" centrado bajo las tarjetas. */
+.recursos-utilizados {
+  text-align: center;
+}
+
+/* Diálogo con barra de desplazamiento oscura y texto alineado al inicio. */
+dialog {
+  color-scheme: dark;
+  text-align: start;
+  animation: creditos-dialogo-abrir var(--creditos-duracion-entrada) ease-out;
+}
+
+dialog::backdrop {
+  animation: creditos-desvanecer var(--creditos-duracion-entrada) ease-out;
+}
+
+dialog h2 {
+  margin-top: 0;
+}
+
+/* Filas separadas por una línea y con el contenido centrado. */
+dialog th,
+dialog td {
+  padding: var(--espacio-sm) var(--espacio-xs);
+  border-bottom: 1px solid var(--color-secundario);
+  text-align: center;
+}
+
+/* Cada recurso: imágenes arriba y descripción debajo. */
+.recurso {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  align-items: center;
+}
+
+.recurso__descripcion {
+  margin: 0;
+}
+
+/* El nombre de la licencia no se parte entre líneas. */
+.recurso__descripcion a {
+  white-space: nowrap;
+}
+
+/* Miniatura del fondo con marco fino; se suaviza porque se muestra reducida. */
+.recurso--miniatura img {
+  display: block;
+  width: 15rem;
+  border: 2px solid var(--color-texto);
+  border-radius: var(--radio-borde);
+  image-rendering: auto;
+  transition: transform var(--duracion-transicion) ease;
+}
+
+/* Íconos en una tira centrada que pasa a varias líneas si no cabe. */
+.recurso__iconos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-xs);
+  justify-content: center;
+}
+
+/* La imagen crece un poco al pasar el puntero o al enfocarla con teclado. */
+.recurso a:hover img,
+.recurso a:focus-visible img {
+  transform: scale(1.04);
+}
+
+/* Botón "Cerrar" a la derecha, debajo de la tabla. */
+.recursos-utilizados__cerrar {
+  display: block;
+  margin: var(--espacio-md) 0 0 auto;
+}
+
+/* Animaciones de entrada; common.css las apaga con movimiento reducido. */
+@keyframes creditos-aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes creditos-dialogo-abrir {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes creditos-desvanecer {
+  from {
+    opacity: 0;
+  }
+}
+
+/* En pantallas angostas la foto se reduce y "Cerrar" ocupa todo el ancho. */
+@media (width < 30rem) {
+  :root {
+    --creditos-tamano-foto: 3rem;
+  }
+
+  .integrante {
+    column-gap: var(--espacio-sm);
+    padding-inline: var(--espacio-sm);
+  }
+
+  .recursos-utilizados__cerrar {
+    width: 100%;
+  }
+}
