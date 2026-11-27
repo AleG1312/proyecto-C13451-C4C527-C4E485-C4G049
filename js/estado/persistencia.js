@@ -49,3 +49,8 @@ export function restaurarEstadoPartida(estado) {
     return false;
   }
 }
+
+/** Elimina el progreso anterior antes de crear otra partida. */
+export function eliminarEstadoPartida() {
+  sessionStorage.removeItem(CLAVE_ESTADO);
+}

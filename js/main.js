@@ -1,9 +1,11 @@
 import { estadoPartida } from "./estado/estadoPartida.js";
+import { obtenerConfiguracionPartida } from "./estado/configuracionPartida.js";
 import {
   guardarEstadoPartida,
   restaurarEstadoPartida,
 } from "./estado/persistencia.js";
 import { registrarControles } from "./entrada/controles.js";
+import { actualizarTemporizador } from "./interfaz/temporizador.js";
 import { iniciarCicloJuego } from "./juego/cicloJuego.js";
 import {
   evaluarFinDeRonda,
@@ -21,6 +23,7 @@ function actualizarPartida(deltaMs) {
     0,
     estadoPartida.tiempo.restanteMs - deltaMs,
   );
+  actualizarTemporizador(estadoPartida);
 
   const resultado = evaluarFinDeRonda(estadoPartida);
 
@@ -43,12 +46,24 @@ function iniciarJuego() {
 
   const habiaPartida = restaurarEstadoPartida(estadoPartida);
 
+  if (!habiaPartida) {
+    const configuracion = obtenerConfiguracionPartida();
+
+    if (configuracion !== null) {
+      const duracionMs = configuracion.duracionSegundos * 1000;
+      estadoPartida.ronda.total = configuracion.totalRondas;
+      estadoPartida.tiempo.duracionRondaMs = duracionMs;
+      estadoPartida.tiempo.restanteMs = duracionMs;
+    }
+  }
+
   if (habiaPartida && estadoPartida.fase === "fin-ronda") {
     prepararSiguienteRonda(estadoPartida);
   }
 
   registrarControles(estadoPartida, canvas);
   estadoPartida.fase = "jugando";
+  actualizarTemporizador(estadoPartida);
   iniciarCicloJuego(estadoPartida, actualizarPartida);
 }
 

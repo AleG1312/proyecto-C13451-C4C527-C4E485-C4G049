@@ -1,3 +1,6 @@
+import { guardarConfiguracionPartida } from "./estado/configuracionPartida.js";
+import { eliminarEstadoPartida } from "./estado/persistencia.js";
+
 // Duración de la espera antes de iniciar la partida automáticamente.
 const DURACION_ESPERA_MS = 30000;
 const INTERVALO_ACTUALIZACION_MS = 250;
@@ -17,6 +20,17 @@ if (!(contador instanceof HTMLTimeElement) ||
 const instanteFinalMs = Date.now() + DURACION_ESPERA_MS;
 let partidaIniciada = false;
 let intervaloCuentaRegresiva;
+
+// Conserva las opciones recibidas desde la configuración de sala.
+const parametros = new URLSearchParams(window.location.search);
+const configuracionValida = guardarConfiguracionPartida(
+  Number(parametros.get("rondas")),
+  Number(parametros.get("duracion")),
+);
+
+if (configuracionValida) {
+  eliminarEstadoPartida();
+}
 
 /** Abre la pantalla de partida una sola vez. */
 function iniciarPartida() {
