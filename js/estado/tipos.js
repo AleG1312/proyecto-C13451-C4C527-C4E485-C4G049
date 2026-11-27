@@ -27,6 +27,7 @@
  * @property {string} id - Identificador único.
  * @property {string} nombre - Nombre mostrado en la interfaz.
  * @property {"corredor"|"atrapador"} rol - Función dentro de la ronda.
+ * @property {Vector} posicionInicial - Punto donde comienza cada ronda.
  * @property {Vector} posicion - Ubicación actual.
  * @property {Vector} velocidad - Movimiento actual.
  * @property {number} ancho - Ancho de la zona de colisión.
@@ -63,9 +64,9 @@
  * @property {{corredor: Jugador, atrapador: Jugador}} jugadores
  * @property {Mapa} mapa
  * @property {{duracionRondaMs: number, restanteMs: number, transcurridoMs: number}} tiempo
- * @property {{actual: number, total: number, ganador: string|null, motivoFinal: string|null}} ronda
+ * @property {{actual: number, total: number, ganador: "corredor"|"atrapador"|null, motivoFinal: "captura"|"tiempo-agotado"|null}} ronda
  * @property {{corredor: number, atrapador: number}} puntajes
- * @property {string|null} ganadorPartida
+ * @property {"corredor"|"atrapador"|null} ganadorPartida
  * @property {{tipo: "exito"|"error"|"informacion"|null, mensaje: string}} realimentacion
  * @property {{teclasPresionadas: Set<string>, puntero: Vector, disparoSolicitado: boolean}} entradas
  */
