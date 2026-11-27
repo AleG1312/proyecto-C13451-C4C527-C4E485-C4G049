@@ -41,12 +41,14 @@ export function registrarControles(estado, canvas, alternarPausa) {
       return;
     }
 
-    // Cada pulsación genera un solo intento de salto.
+    // Cada pulsación genera un solo intento de salto o de dash.
     if (!evento.repeat && estado.fase === "jugando") {
       if (evento.code === CONTROLES.corredor.salto) {
         estado.entradas.saltosSolicitados.corredor = true;
       } else if (evento.code === CONTROLES.atrapador.salto) {
         estado.entradas.saltosSolicitados.atrapador = true;
+      } else if (evento.code === CONTROLES.corredor.dash) {
+        estado.entradas.dashSolicitado = true;
       }
     }
 
