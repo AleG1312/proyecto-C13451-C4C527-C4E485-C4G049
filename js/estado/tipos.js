@@ -32,6 +32,7 @@
  * @property {Vector} velocidad - Movimiento actual.
  * @property {number} ancho - Ancho de la zona de colisión.
  * @property {number} alto - Alto de la zona de colisión.
+ * @property {{imagen: string}} apariencia - Recurso visual del personaje.
  * @property {boolean} estaEnSuelo - Indica si puede saltar.
  * @property {number} ralentizadoHastaMs - Fin del efecto de ralentización.
  * @property {Object.<string, Habilidad>} habilidades - Habilidades disponibles.

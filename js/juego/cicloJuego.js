@@ -5,8 +5,9 @@ const DELTA_MAXIMO_MS = 100;
  * Inicia el ciclo que actualiza la partida en cada cuadro del navegador.
  * @param {import("../estado/tipos.js").EstadoPartida} estado
  * @param {(deltaMs: number, instanteMs: number) => void} actualizar
+ * @param {() => void} renderizar
  */
-export function iniciarCicloJuego(estado, actualizar) {
+export function iniciarCicloJuego(estado, actualizar, renderizar) {
   let instanteAnteriorMs = performance.now();
 
   function ejecutarCuadro(instanteMs) {
@@ -20,6 +21,9 @@ export function iniciarCicloJuego(estado, actualizar) {
     if (estado.fase === "jugando") {
       actualizar(deltaMs, instanteMs);
     }
+
+    // La imagen siempre refleja la última posición guardada en el estado.
+    renderizar();
 
     window.requestAnimationFrame(ejecutarCuadro);
   }

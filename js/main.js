@@ -6,6 +6,7 @@ import {
 } from "./estado/persistencia.js";
 import { registrarControles } from "./entrada/controles.js";
 import { actualizarTemporizador } from "./interfaz/temporizador.js";
+import { crearRenderizadorPartida } from "./interfaz/renderizarPartida.js";
 import { iniciarCicloJuego } from "./juego/cicloJuego.js";
 import {
   evaluarFinDeRonda,
@@ -37,7 +38,7 @@ function actualizarPartida(deltaMs) {
 }
 
 /** Inicia los controles y el ciclo cuando el documento está disponible. */
-function iniciarJuego() {
+async function iniciarJuego() {
   const canvas = document.querySelector("#juego");
 
   if (!(canvas instanceof HTMLCanvasElement)) {
@@ -62,9 +63,11 @@ function iniciarJuego() {
   }
 
   registrarControles(estadoPartida, canvas);
+  const renderizar = await crearRenderizadorPartida(canvas, estadoPartida);
   estadoPartida.fase = "jugando";
   actualizarTemporizador(estadoPartida);
-  iniciarCicloJuego(estadoPartida, actualizarPartida);
+  renderizar();
+  iniciarCicloJuego(estadoPartida, actualizarPartida, renderizar);
 }
 
 // El módulo se carga al final del documento, cuando el canvas ya existe.
