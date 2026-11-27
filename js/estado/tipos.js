@@ -68,6 +68,7 @@
  * @property {{actual: number, total: number, ganador: "corredor"|"atrapador"|null, motivoFinal: "captura"|"tiempo-agotado"|null}} ronda
  * @property {{corredor: number, atrapador: number}} puntajes
  * @property {"corredor"|"atrapador"|null} ganadorPartida
+ * @property {boolean} finalizacionManual - Indica si se terminó desde la pausa.
  * @property {{tipo: "exito"|"error"|"informacion"|null, mensaje: string}} realimentacion
  * @property {{teclasPresionadas: Set<string>, saltosSolicitados: {corredor: boolean, atrapador: boolean}, puntero: Vector, disparoSolicitado: boolean}} entradas
  */

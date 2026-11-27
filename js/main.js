@@ -8,6 +8,7 @@ import { registrarControles } from "./entrada/controles.js";
 import { actualizarTemporizador } from "./interfaz/temporizador.js";
 import { actualizarIndicadorRonda } from "./interfaz/indicadorRonda.js";
 import { crearRenderizadorPartida } from "./interfaz/renderizarPartida.js";
+import { configurarMenuPausa } from "./interfaz/menuPausa.js";
 import { iniciarCicloJuego } from "./juego/cicloJuego.js";
 import { actualizarMovimiento } from "./juego/movimiento.js";
 import {
@@ -40,6 +41,23 @@ function actualizarPartida(deltaMs) {
   }
 }
 
+/** Guarda el marcador actual y muestra su resultado en fin de ronda. */
+function finalizarPartidaDesdePausa() {
+  estadoPartida.finalizacionManual = true;
+  estadoPartida.fase = "fin-partida";
+
+  if (estadoPartida.puntajes.corredor > estadoPartida.puntajes.atrapador) {
+    estadoPartida.ganadorPartida = "corredor";
+  } else if (estadoPartida.puntajes.atrapador > estadoPartida.puntajes.corredor) {
+    estadoPartida.ganadorPartida = "atrapador";
+  } else {
+    estadoPartida.ganadorPartida = null;
+  }
+
+  guardarEstadoPartida(estadoPartida);
+  window.location.assign("fin_de_partida.html");
+}
+
 /** Inicia los controles y el ciclo cuando el documento está disponible. */
 async function iniciarJuego() {
   const canvas = document.querySelector("#juego");
@@ -65,7 +83,11 @@ async function iniciarJuego() {
     prepararSiguienteRonda(estadoPartida);
   }
 
-  registrarControles(estadoPartida, canvas);
+  const menuPausa = configurarMenuPausa(
+    estadoPartida,
+    finalizarPartidaDesdePausa,
+  );
+  registrarControles(estadoPartida, canvas, menuPausa.alternar);
   const renderizar = await crearRenderizadorPartida(canvas, estadoPartida);
   estadoPartida.fase = "jugando";
   actualizarIndicadorRonda(estadoPartida);

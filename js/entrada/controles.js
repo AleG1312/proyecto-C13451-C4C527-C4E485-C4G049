@@ -25,30 +25,19 @@ const TECLAS_DEL_JUEGO = new Set([
 ]);
 
 /**
- * Cambia entre juego activo y pausa.
- * @param {import("../estado/tipos.js").EstadoPartida} estado
- */
-function alternarPausa(estado) {
-  if (estado.fase === "jugando") {
-    estado.fase = "pausado";
-  } else if (estado.fase === "pausado") {
-    estado.fase = "jugando";
-  }
-}
-
-/**
  * Registra los controles de teclado y ratón mediante eventos.
  * @param {import("../estado/tipos.js").EstadoPartida} estado
  * @param {HTMLCanvasElement} canvas
+ * @param {() => void} alternarPausa
  */
-export function registrarControles(estado, canvas) {
+export function registrarControles(estado, canvas, alternarPausa) {
   window.addEventListener("keydown", (evento) => {
     if (TECLAS_DEL_JUEGO.has(evento.code)) {
       evento.preventDefault();
     }
 
     if (evento.code === CONTROLES.pausa && !evento.repeat) {
-      alternarPausa(estado);
+      alternarPausa();
       return;
     }
 
@@ -61,7 +50,9 @@ export function registrarControles(estado, canvas) {
       }
     }
 
-    estado.entradas.teclasPresionadas.add(evento.code);
+    if (estado.fase === "jugando") {
+      estado.entradas.teclasPresionadas.add(evento.code);
+    }
   });
 
   window.addEventListener("keyup", (evento) => {

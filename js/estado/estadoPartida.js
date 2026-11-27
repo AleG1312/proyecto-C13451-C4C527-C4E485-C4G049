@@ -84,6 +84,9 @@ export const estadoPartida = {
   // Identificador del ganador cuando termina la partida.
   ganadorPartida: null,
 
+  // Distingue una partida terminada desde el menú de pausa.
+  finalizacionManual: false,
+
   // Mensaje que la interfaz muestra como respuesta a una acción.
   realimentacion: {
     tipo: null,

@@ -129,6 +129,18 @@
         </section>
     </main>
 
+    <dialog class="modal-pausa" id="modal-pausa" aria-labelledby="modal-pausa-titulo">
+        <h2 class="modal-pausa__titulo" id="modal-pausa-titulo">Pausa</h2>
+        <div class="modal-pausa__opciones">
+            <button class="boton-principal modal-pausa__opcion"
+                type="button" data-accion="reanudar">Reanudar partida</button>
+            <button class="boton-principal modal-pausa__opcion"
+                type="button" data-accion="menu">Volver al menú principal</button>
+            <button class="boton-principal modal-pausa__opcion"
+                type="button" data-accion="finalizar">Finalizar la partida</button>
+        </div>
+    </dialog>
+
     <footer>
         <p><small>© <time datetime="2026">2026</time> National Campaign.
             Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,

@@ -249,6 +249,31 @@ body > footer p {
   margin: 0;
 }
 
+/* Cuadro pequeño que se superpone al juego mientras la ronda está pausada. */
+.modal-pausa {
+  width: min(90%, 24rem);
+  padding: var(--espacio-lg);
+  border: 2px solid var(--color-texto);
+  border-radius: var(--radio-borde);
+  color: var(--color-texto);
+  background-color: var(--color-superficie);
+}
+
+.modal-pausa__titulo {
+  margin-top: 0;
+  text-align: center;
+}
+
+.modal-pausa__opciones {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-sm);
+}
+
+.modal-pausa__opcion {
+  width: 100%;
+}
+
 /* Jugador 2 queda abajo a la derecha, con la imagen al lado contrario para
    espejar la tarjeta del jugador 1. */
 .jugador--derecha {
