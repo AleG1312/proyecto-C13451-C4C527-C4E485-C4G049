@@ -1,0 +1,294 @@
+/* Hoja propia de game.html: acerca la pantalla al wireframe digitales/Juego.
+   El área del juego reserva una caja adaptable de 960x540 con el
+   temporizador superpuesto arriba a la izquierda, y las tarjetas de los
+   jugadores quedan abajo, una a cada lado en la misma línea horizontal.
+   Sigue las pautas de index.css: título grande con contraste rojo, accesos
+   superiores circulares y puntos de quiebre en 48rem y 24rem. */
+
+/* El contenido principal reparte el espacio libre en columna: título y menú
+   arriba, área del juego al centro y jugadores abajo. */
+body > main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Título principal grande con sombra roja, como el de la pantalla de inicio. */
+body > main > h1 {
+  margin-block: 0;
+  color: var(--color-texto);
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+    0.2rem 0.2rem 0 var(--color-primario),
+    0 0.5rem 1rem rgb(0 0 0 / 55%);
+}
+
+/* Los accesos superiores (salir y configuración) replican los de
+   fin_de_ronda.html: la imagen interior es el botón circular (borde,
+   fondo y sombra propios) y el enlace solo aporta la transición de
+   interacción. */
+.volver img,
+.configuracion img {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.35rem;
+  border: 2px solid var(--color-secundario);
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: var(--color-superficie);
+  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 35%);
+}
+
+.volver,
+.configuracion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    filter var(--duracion-transicion) ease,
+    transform var(--duracion-transicion) ease;
+}
+
+@media (hover: hover) {
+  .volver:hover,
+  .configuracion:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+  }
+}
+
+.volver:active,
+.configuracion:active {
+  transform: translateY(1px);
+}
+
+/* Área del juego: la caja del canvas queda justo debajo del menú, seguida de
+   inmediato por las tarjetas de los jugadores. */
+.area-juego {
+  width: min(100%, 60rem);
+  margin-inline: auto;
+}
+
+/* El pie forma una franja estable, como en la pantalla de inicio. */
+body > footer {
+  width: 100%;
+  padding-inline: var(--espacio-sm);
+  border-top: 2px solid var(--color-secundario);
+  background-color: rgb(13 31 66 / 88%);
+}
+
+body > footer p {
+  margin-block: 0;
+}
+
+/* Caja del canvas: fieldset con ancho adaptable hasta 960px (60rem) y
+   proporción fija 16:9, equivalente a 960x540, así se ajusta a pantallas más
+   pequeñas sin deformarse. */
+.canvas-contenedor {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  padding: 0;
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  background-color: rgb(13 31 66 / 92%);
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 40%);
+}
+
+/* La leyenda interrumpe el borde superior de la caja ajustándose al texto,
+   como "Resumen de ronda" en fin_de_ronda.html. */
+.canvas-contenedor__titulo {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--espacio-xs);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* El canvas llena toda la caja, así la relación 960x540 se mantiene. */
+.canvas-contenedor canvas {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radio-borde);
+}
+
+/* Temporizador superpuesto dentro de la caja del canvas, arriba a la
+   izquierda; no forma parte del canvas, solo se posiciona sobre él. */
+.temporizador {
+  position: absolute;
+  z-index: 1;
+  top: var(--espacio-xs);
+  left: var(--espacio-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  margin: 0;
+  padding: 0.25rem var(--espacio-xs);
+  border-radius: var(--radio-borde);
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  background-color: rgb(7 21 47 / 80%);
+}
+
+.temporizador img {
+  width: clamp(1rem, 3vw, 1.5rem);
+  height: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* Zona de jugadores abajo: un jugador a la izquierda y otro a la derecha,
+   sobre la misma línea horizontal. */
+.jugadores {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--espacio-md);
+  width: min(100%, 60rem);
+  margin-inline: auto;
+  padding-block: var(--espacio-sm);
+}
+
+/* Tarjeta de jugador: imagen junto a los datos, con superficie oscura. Cada
+   tarjeta crece para compartir la línea hasta que el ancho ya no alcanza. */
+.jugador {
+  display: flex;
+  flex: 1 1 18rem;
+  align-items: center;
+  gap: var(--espacio-sm);
+  padding: var(--espacio-sm);
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  background-color: rgb(13 31 66 / 92%);
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 35%);
+}
+
+/* Texto disponible para lectores de pantalla pero oculto en pantalla, para
+   conservar el significado ("Rondas ganadas", "Vida", "Recarga...") sin
+   ocupar espacio en la tarjeta compacta. */
+.visualmente-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+}
+
+.jugador img {
+  width: 4rem;
+  height: auto;
+}
+
+/* La foto del jugador queda circular, como el avatar de lobby.html: caja
+   cuadrada fija para que el borde redondeado no se deforme en elipse. */
+.jugador__figura img {
+  width: 4rem;
+  height: 4rem;
+  border: 0.2rem solid var(--color-texto);
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--color-superficie);
+}
+
+/* Figura del jugador: imagen con el puntaje debajo, solo el número. */
+.jugador__figura {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.jugador__rondas {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Datos del jugador ocupan todo el ancho restante de la tarjeta. */
+.jugador__datos {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Fila de barra: el ícono (o la etiqueta oculta) a un lado y la barra
+   creciendo hasta ocupar todo el ancho de la tarjeta. */
+.jugador__barra {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  margin: 0;
+}
+
+.jugador__barra label {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.jugador__barra img {
+  width: 2.25rem;
+  height: auto;
+}
+
+.jugador__barra meter,
+.jugador__barra progress {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.jugador__rol {
+  margin: 0;
+  font-size: 1.17rem;
+}
+
+.jugador p {
+  margin: 0;
+}
+
+/* Jugador 2 queda abajo a la derecha, con la imagen al lado contrario para
+   espejar la tarjeta del jugador 1. */
+.jugador--derecha {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+/* En pantallas estrechas (tableta o menos), las tarjetas de los jugadores se
+   apilan a lo ancho completo y recuperan la misma orientación. */
+@media (width <= 48rem) {
+  .jugadores {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .jugador {
+    flex-basis: auto;
+  }
+
+  .jugador--derecha {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+/* En pantallas muy estrechas (móvil, p. ej. Safari en iPhone), los accesos
+   superiores y la imagen del jugador se reducen para no tapar el contenido. */
+@media (width <= 24rem) {
+  .volver img,
+  .configuracion img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  body > main > h1 {
+    font-size: 2rem;
+  }
+
+  .jugador__figura img {
+    width: 3rem;
+    height: 3rem;
+  }
+}

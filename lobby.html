@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+
+<!-- Los ajustes de estructura y estilos de esta pantalla se realizaron con
+     apoyo de Codex y fueron revisados por el equipo. -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sala de espera | National Campaign</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/lobby.css" />
+</head>
+
+<body>
+    <header class="lobby-encabezado">
+      <a class="boton-icono lobby-encabezado__volver" href="index.html">
+        <img src="assets/icono-flecha-izquierda.svg"
+            alt="Salir de la sala"
+            width="32"
+            height="32" />
+      </a>
+
+      <p class="lobby-encabezado__codigo"><strong>ID: XXXX</strong></p>
+
+      <a class="boton-icono lobby-encabezado__configuracion" href="configuracion_sala.html">
+        <img src="assets/icono-configuracion.svg"
+            alt="Configuración de la sala"
+            width="32"
+            height="32" />
+      </a>
+    </header>
+
+  <main class="lobby">
+    <h1 class="lobby__titulo">Sala de espera</h1>
+
+    <section class="sala">
+      <h2 class="sala__titulo">Jugadores</h2>
+
+      <article class="jugador jugador--corredor">
+        <h3 class="jugador__nombre">#1: XXXX</h3>
+        <img src="assets/icono-usuario.svg"
+            alt=""
+            class="jugador__avatar"
+            width="48"
+            height="48" />
+        <p class="jugador__rol">Corredor: Juan Santamaría</p>
+      </article>
+
+      <img src="assets/placeholder-imagen.svg"
+          alt="Vista previa del mapa"
+          class="sala__mapa"
+          width="96"
+          height="96" />
+
+      <article class="jugador jugador--atrapador">
+        <h3 class="jugador__nombre">#2: XXXX</h3>
+        <img src="assets/icono-usuario.svg"
+            alt=""
+            class="jugador__avatar"
+            width="48"
+            height="48" />
+        <p class="jugador__rol">Atrapador: William Walker</p>
+      </article>
+    </section>
+
+    <section class="cuenta-regresiva">
+      <h2 class="cuenta-regresiva__titulo">La partida empieza en</h2>
+
+      <time class="cuenta-regresiva__tiempo" datetime="PT30S">
+        <img src="assets/clock.svg"
+            alt=""
+            class="cuenta-regresiva__icono"
+            width="32"
+            height="32" />
+        <span>0:30</span>
+      </time>
+
+      <a class="boton-principal cuenta-regresiva__inicio" href="game.html">Iniciar partida</a>
+    </section>
+  </main>
+
+  <footer>
+    <p><small>© <time datetime="2026">2026</time> National Campaign.
+        Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
+        <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
+  </footer>
+
+</body>
+
+</html>

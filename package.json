@@ -1,0 +1,14 @@
+{
+  "name": "proyecto-arcade-distribuido",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Proyecto final del curso CI-0137 Desarrollo de Aplicaciones Web.",
+  "scripts": {
+    "lint:css": "stylelint \"**/*.css\" --allow-empty-input",
+    "iconos": "node scripts/generar-iconos.mjs"
+  },
+  "devDependencies": {
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard": "^40.0.0"
+  }
+}

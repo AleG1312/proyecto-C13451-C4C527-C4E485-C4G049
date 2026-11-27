@@ -1,0 +1,210 @@
+/* Sala de espera: composición propia sobre los estilos de common.css.
+   Desarrollada con apoyo de Codex y revisada por el equipo. */
+
+.lobby-encabezado__codigo {
+  margin: 0;
+  padding: 0.65rem var(--espacio-sm);
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  background-color: var(--color-superficie);
+  box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 35%);
+  letter-spacing: 0.08em;
+}
+
+/* La pantalla distribuye título, jugadores, mapa y contador verticalmente. */
+.lobby {
+  display: grid;
+  gap: var(--espacio-md);
+  align-content: center;
+}
+
+.lobby__titulo {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+  text-align: center;
+  text-shadow:
+    0.15rem 0.15rem 0 var(--color-primario),
+    0 0.4rem 0.8rem rgb(0 0 0 / 50%);
+}
+
+/* En escritorio, el mapa ocupa el centro y cada jugador un lateral. */
+.sala {
+  display: grid;
+  grid-template-areas:
+    "titulo titulo titulo"
+    "corredor mapa atrapador";
+  grid-template-columns: minmax(9rem, 1fr) minmax(20rem, 4fr) minmax(9rem, 1fr);
+  gap: var(--espacio-md);
+  align-items: center;
+}
+
+.sala__titulo {
+  grid-area: titulo;
+  margin: 0;
+  text-align: center;
+}
+
+.sala__mapa {
+  grid-area: mapa;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0.25rem solid var(--color-texto);
+  border-radius: var(--radio-borde);
+  object-fit: cover;
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 45%);
+}
+
+.jugador {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  align-items: center;
+  min-width: 0;
+  padding: var(--espacio-sm);
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  background-color: rgb(13 31 66 / 92%);
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 35%);
+  text-align: center;
+}
+
+.jugador--corredor {
+  grid-area: corredor;
+}
+
+.jugador--atrapador {
+  grid-area: atrapador;
+}
+
+.jugador__nombre,
+.jugador__rol {
+  margin: 0;
+}
+
+.jugador__nombre {
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radio-borde);
+  background-color: var(--color-secundario);
+  font-size: 1.05rem;
+}
+
+.jugador__avatar {
+  width: 6rem;
+  height: 6rem;
+  border: 0.2rem solid var(--color-texto);
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: var(--color-superficie);
+}
+
+.jugador__rol {
+  font-size: 0.9rem;
+}
+
+/* El contador combina icono, texto y acción para no depender solo del color. */
+.cuenta-regresiva {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: var(--espacio-sm) var(--espacio-md);
+  align-items: center;
+  justify-content: center;
+  padding: var(--espacio-sm);
+  border: 2px solid var(--color-secundario);
+  border-radius: var(--radio-borde);
+  background-color: rgb(13 31 66 / 92%);
+}
+
+.cuenta-regresiva__titulo {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.cuenta-regresiva__tiempo {
+  display: inline-flex;
+  gap: var(--espacio-xs);
+  align-items: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.cuenta-regresiva__icono {
+  width: 3rem;
+  height: 3rem;
+  animation: reloj-pulso 1.5s ease-in-out infinite alternate;
+}
+
+/* Movimiento básico del reloj; common.css lo elimina con movimiento reducido. */
+@keyframes reloj-pulso {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* En tablet y móvil, el mapa pasa arriba y los jugadores quedan debajo. */
+@media (width <= 48rem) {
+  .sala {
+    grid-template-areas:
+      "titulo titulo"
+      "mapa mapa"
+      "corredor atrapador";
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sala__mapa {
+    max-width: 38rem;
+    justify-self: center;
+  }
+}
+
+@media (width <= 30rem) {
+  .lobby-encabezado__volver,
+  .lobby-encabezado__configuracion {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .lobby-encabezado__codigo {
+    padding-inline: var(--espacio-xs);
+    font-size: 0.9rem;
+  }
+
+  .sala {
+    grid-template-areas:
+      "titulo"
+      "mapa"
+      "corredor"
+      "atrapador";
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .jugador {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    text-align: left;
+  }
+
+  .jugador__avatar {
+    grid-row: 1 / 3;
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .cuenta-regresiva {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cuenta-regresiva__titulo {
+    grid-column: 1;
+  }
+
+  .cuenta-regresiva__tiempo {
+    justify-content: center;
+  }
+}

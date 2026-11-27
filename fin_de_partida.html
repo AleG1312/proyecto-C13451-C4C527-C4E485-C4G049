@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fin de partida | National Campaign</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/fin_de_partida.css" />
+</head>
+
+<body>
+    <header>
+        <a class="boton-icono volver" href="index.html">
+            <img src="assets/icono-flecha-izquierda.svg"
+                alt="Volver al inicio"
+                width="32"
+                height="32" />
+        </a>
+    </header>
+
+    <main class="fin-partida">
+        <h1 class="fin-partida__titulo">Fin de partida</h1>
+
+        <section class="podio">
+            <h2 class="podio__titulo">Marcador final</h2>
+
+            <p class="podio__ganador"><strong>Ganador de la partida:</strong> Jugador 1</p>
+
+            <!-- 1.er lugar: escalón más alto -->
+            <article class="puesto puesto--primero">
+                <h3 class="puesto__nombre">Jugador 1</h3>
+                <img src="assets/icono-usuario.svg"
+                    alt=""
+                    class="puesto__avatar"
+                    width="64"
+                    height="64" />
+                <div class="puesto__escalon">
+                    <p class="puesto__lugar">1.º lugar</p>
+                    <p class="puesto__rondas">Rondas ganadas: 12</p>
+                </div>
+            </article>
+
+            <!-- 2.º lugar: escalón más bajo -->
+            <article class="puesto">
+                <h3 class="puesto__nombre">Jugador 2</h3>
+                <img src="assets/icono-usuario.svg"
+                    alt=""
+                    class="puesto__avatar"
+                    width="48"
+                    height="48" />
+                <div class="puesto__escalon">
+                    <p class="puesto__lugar">2.º lugar</p>
+                    <p class="puesto__rondas">Rondas ganadas: 8</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- nav usado dentro de main por el estilo de menú de videojuego-->
+        <nav class="acciones" aria-label="Acciones de fin de partida">
+            <ul class="acciones__lista">
+                <li><a class="boton-principal acciones__enlace" href="lobby.html">Jugar de nuevo</a></li>
+                <li><a class="boton-principal acciones__enlace acciones__enlace--secundario" href="index.html">Menú principal</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer>
+        <p><small>© <time datetime="2026">2026</time> National Campaign.
+            Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
+            <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
+    </footer>
+</body>
+
+</html>

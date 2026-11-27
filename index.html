@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+
+<!-- Los ajustes de estructura y estilos de esta pantalla se realizaron con
+     apoyo de Codex y fueron revisados por el equipo. -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio | National Campaign</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+    <header>
+        <!-- TODO: Conectar con pantalla real -->
+        <img src="assets/icono-usuario.svg"
+        alt="Icono de usuario"
+        class="usuario animacion-interactiva"
+        width="32"
+        height="32" />
+
+        <!-- TODO: Conectar con pantalla real -->
+        <img src="assets/icono-configuracion.svg"
+        alt="Configuraciones"
+        class="configuracion animacion-interactiva"
+        width="32"
+        height="32" />
+    </header>
+
+    <main class="inicio">
+        <h1 class="inicio__titulo">National Campaign</h1>
+
+        <img src="assets/placeholder-imagen.svg"
+        alt="Imagen de bienvenida"
+        class="inicio__imagen"
+        width="48"
+        height="48" />
+
+        <!-- nav usado dentro de main por el estilo de menú de videojuego-->
+        <nav class="menu-principal" aria-label="Menú principal">
+            <ul class="menu-principal__lista">
+                <li class="menu-principal__item">
+                    <a class="boton-principal menu-principal__enlace menu-principal__enlace--principal"
+                        href="./configuracion_sala.html">Crear sala</a>
+                </li>
+                <li class="menu-principal__item">
+                    <a class="menu-principal__enlace" href="./lobby.html">Unirme a sala</a>
+                </li>
+                <li class="menu-principal__item">
+                    <a class="menu-principal__enlace" href="./reglas.html">Reglas y controles</a>
+                </li>
+                <li class="menu-principal__item">
+                    <a class="menu-principal__enlace" href="./credits.html">Créditos</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer>
+        <p><small>© <time datetime="2026">2026</time> National Campaign.
+            Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
+            <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
+    </footer>
+
+</body>
+
+</html>

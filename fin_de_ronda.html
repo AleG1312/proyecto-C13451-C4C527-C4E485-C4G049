@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fin de ronda | National Campaign</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/fin_de_ronda.css" />
+</head>
+
+<body>
+    <header>
+        <a class="volver" href="game.html" aria-label="regresar">
+            <img src="assets/icono-flecha-izquierda.svg"
+                alt="regresar"
+                width="32"
+                height="32" />
+        </a>
+
+        <a class="configuracion" href="configuracion_sala.html" aria-label="Configuración de la sala">
+            <img src="assets/icono-configuracion.svg"
+                alt="Configuración de la sala"
+                width="32"
+                height="32" />
+        </a>
+    </header>
+
+    <main>
+        <h1 class="titulo">Fin de ronda</h1>
+
+        <div class="contenido">
+        <fieldset class="resumen">
+            <legend class="resumen__titulo">Resumen de ronda</legend>
+
+            <div class="resumen__contenido">
+            <div class="jugadores">
+                <!-- Jugador 1 (arriba a la izquierda, puntaje a la derecha) -->
+                <article class="jugador jugador--primero">
+                    <div class="jugador__tarjeta">
+                        <h2 class="jugador__nombre">Jugador 1</h2>
+                        <img src="assets/placeholder-imagen.svg"
+                            alt="Imagen del jugador 1"
+                            width="40"
+                            height="40" />
+                        <p><span class="visualmente-oculto">Rol: </span>Corredor</p>
+                    </div>
+                    <p class="puntaje"><span class="visualmente-oculto">Rondas ganadas: </span>1</p>
+                </article>
+
+                <!-- Jugador 2 (abajo a la derecha, puntaje a la izquierda) -->
+                <article class="jugador jugador--segundo">
+                    <div class="jugador__tarjeta">
+                        <h2 class="jugador__nombre">Jugador 2</h2>
+                        <img src="assets/placeholder-imagen.svg"
+                            alt="Imagen del jugador 2"
+                            width="40"
+                            height="40" />
+                        <p><span class="visualmente-oculto">Rol: </span>Atrapador</p>
+                    </div>
+                    <p class="puntaje"><span class="visualmente-oculto">Rondas ganadas: </span>0</p>
+                </article>
+            </div>
+
+            <p class="ganador"><strong>Ganador de la ronda:</strong> Jugador 1</p>
+            </div>
+        </fieldset>
+
+        <!-- nav usado dentro de main por el estilo de menú de videojuego-->
+        <nav>
+            <ul>
+                <li><a href="game.html">Siguiente ronda</a></li>
+            </ul>
+        </nav>
+        </div>
+    </main>
+
+    <footer>
+        <p><small>© <time datetime="2026">2026</time> National Campaign.
+            Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
+            <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
+    </footer>
+</body>
+
+</html>
