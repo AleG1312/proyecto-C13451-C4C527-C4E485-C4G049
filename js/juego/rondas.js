@@ -41,13 +41,14 @@ export function evaluarFinDeRonda(estado) {
     return null;
   }
 
-  if (estanEnContacto(estado.jugadores.corredor, estado.jugadores.atrapador)) {
-    finalizarRonda(estado, "atrapador", "captura");
+  // Al agotarse el tiempo, el corredor ya logró escapar.
+  if (estado.tiempo.restanteMs <= 0) {
+    finalizarRonda(estado, "corredor", "tiempo-agotado");
     return estado.fase;
   }
 
-  if (estado.tiempo.restanteMs <= 0) {
-    finalizarRonda(estado, "corredor", "tiempo-agotado");
+  if (estanEnContacto(estado.jugadores.corredor, estado.jugadores.atrapador)) {
+    finalizarRonda(estado, "atrapador", "captura");
     return estado.fase;
   }
 

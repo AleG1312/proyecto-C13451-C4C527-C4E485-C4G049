@@ -45,7 +45,7 @@
                             height="40" />
                         <p><span class="visualmente-oculto">Rol: </span>Corredor</p>
                     </div>
-                    <p class="puntaje"><span class="visualmente-oculto">Rondas ganadas: </span>1</p>
+                    <p class="puntaje"><span class="visualmente-oculto">Rondas ganadas: </span><span id="puntaje-corredor">0</span></p>
                 </article>
 
                 <!-- Jugador 2 (abajo a la derecha, puntaje a la izquierda) -->
@@ -58,11 +58,11 @@
                             height="40" />
                         <p><span class="visualmente-oculto">Rol: </span>Atrapador</p>
                     </div>
-                    <p class="puntaje"><span class="visualmente-oculto">Rondas ganadas: </span>0</p>
+                    <p class="puntaje"><span class="visualmente-oculto">Rondas ganadas: </span><span id="puntaje-atrapador">0</span></p>
                 </article>
             </div>
 
-            <p class="ganador"><strong>Ganador de la ronda:</strong> Jugador 1</p>
+            <p class="ganador"><strong>Ganador de la ronda:</strong> <span id="ganador-ronda">Pendiente</span></p>
             </div>
         </fieldset>
 
@@ -80,6 +80,8 @@
             Proyecto del curso <abbr title="Desarrollo de Aplicaciones Web">CI-0137</abbr>,
             <abbr title="Universidad de Costa Rica">UCR</abbr>.</small></p>
     </footer>
+    <!-- Muestra el resultado guardado de la ronda recién terminada. -->
+    <script type="module" src="js/finDeRonda.js"></script>
 </body>
 
 </html>
