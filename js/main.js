@@ -10,7 +10,11 @@ import { actualizarIndicadorRonda } from "./interfaz/indicadorRonda.js";
 import { crearRenderizadorPartida } from "./interfaz/renderizarPartida.js";
 import { configurarMenuPausa } from "./interfaz/menuPausa.js";
 import { iniciarCicloJuego } from "./juego/cicloJuego.js";
+import { actualizarIndicadoresHabilidades } from "./interfaz/indicadorHabilidades.js";
 import { actualizarMovimiento } from "./juego/movimiento.js";
+import { actualizarPuertas } from "./juego/puertas.js";
+import { actualizarDash } from "./juego/dash.js";
+import { actualizarDisparo } from "./juego/disparo.js";
 import {
   evaluarFinDeRonda,
   prepararSiguienteRonda,
@@ -22,7 +26,13 @@ import {
  * @param {number} deltaMs
  */
 function actualizarPartida(deltaMs) {
+  // El reloj de la ronda se detiene en pausa y reinicia en cada ronda.
+  const ahoraMs = estadoPartida.tiempo.transcurridoMs;
+  actualizarPuertas(estadoPartida, ahoraMs);
+  actualizarDash(estadoPartida, ahoraMs);
+  actualizarDisparo(estadoPartida, ahoraMs);
   actualizarMovimiento(estadoPartida, deltaMs);
+  actualizarIndicadoresHabilidades(estadoPartida, ahoraMs);
   estadoPartida.tiempo.transcurridoMs += deltaMs;
   estadoPartida.tiempo.restanteMs = Math.max(
     0,
