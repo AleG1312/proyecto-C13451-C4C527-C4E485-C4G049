@@ -8,6 +8,7 @@ import { registrarControles } from "./entrada/controles.js";
 import { actualizarTemporizador } from "./interfaz/temporizador.js";
 import { crearRenderizadorPartida } from "./interfaz/renderizarPartida.js";
 import { iniciarCicloJuego } from "./juego/cicloJuego.js";
+import { actualizarMovimiento } from "./juego/movimiento.js";
 import {
   evaluarFinDeRonda,
   prepararSiguienteRonda,
@@ -19,6 +20,7 @@ import {
  * @param {number} deltaMs
  */
 function actualizarPartida(deltaMs) {
+  actualizarMovimiento(estadoPartida, deltaMs);
   estadoPartida.tiempo.transcurridoMs += deltaMs;
   estadoPartida.tiempo.restanteMs = Math.max(
     0,

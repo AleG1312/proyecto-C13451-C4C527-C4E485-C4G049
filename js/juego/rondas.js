@@ -78,6 +78,8 @@ export function prepararSiguienteRonda(estado) {
   });
 
   estado.entradas.teclasPresionadas.clear();
+  estado.entradas.saltosSolicitados.corredor = false;
+  estado.entradas.saltosSolicitados.atrapador = false;
   estado.entradas.disparoSolicitado = false;
   estado.fase = "preparacion";
 }

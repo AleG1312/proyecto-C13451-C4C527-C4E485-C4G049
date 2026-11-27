@@ -69,7 +69,7 @@
  * @property {{corredor: number, atrapador: number}} puntajes
  * @property {"corredor"|"atrapador"|null} ganadorPartida
  * @property {{tipo: "exito"|"error"|"informacion"|null, mensaje: string}} realimentacion
- * @property {{teclasPresionadas: Set<string>, puntero: Vector, disparoSolicitado: boolean}} entradas
+ * @property {{teclasPresionadas: Set<string>, saltosSolicitados: {corredor: boolean, atrapador: boolean}, puntero: Vector, disparoSolicitado: boolean}} entradas
  */
 
 // Este archivo solo documenta tipos y no ejecuta comportamiento.

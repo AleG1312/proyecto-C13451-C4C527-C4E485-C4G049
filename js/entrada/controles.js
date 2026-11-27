@@ -52,6 +52,15 @@ export function registrarControles(estado, canvas) {
       return;
     }
 
+    // Cada pulsación genera un solo intento de salto.
+    if (!evento.repeat && estado.fase === "jugando") {
+      if (evento.code === CONTROLES.corredor.salto) {
+        estado.entradas.saltosSolicitados.corredor = true;
+      } else if (evento.code === CONTROLES.atrapador.salto) {
+        estado.entradas.saltosSolicitados.atrapador = true;
+      }
+    }
+
     estado.entradas.teclasPresionadas.add(evento.code);
   });
 
@@ -62,6 +71,8 @@ export function registrarControles(estado, canvas) {
   // Evita que una tecla quede activa si la ventana pierde el foco.
   window.addEventListener("blur", () => {
     estado.entradas.teclasPresionadas.clear();
+    estado.entradas.saltosSolicitados.corredor = false;
+    estado.entradas.saltosSolicitados.atrapador = false;
   });
 
   canvas.addEventListener("pointermove", (evento) => {

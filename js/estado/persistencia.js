@@ -11,6 +11,10 @@ export function guardarEstadoPartida(estado) {
     ...estado,
     entradas: {
       teclasPresionadas: [],
+      saltosSolicitados: {
+        corredor: false,
+        atrapador: false,
+      },
       puntero: { ...estado.entradas.puntero },
       disparoSolicitado: false,
     },
@@ -41,6 +45,10 @@ export function restaurarEstadoPartida(estado) {
 
     Object.assign(estado, estadoGuardado);
     estado.entradas.teclasPresionadas = new Set();
+    estado.entradas.saltosSolicitados = {
+      corredor: false,
+      atrapador: false,
+    };
     estado.entradas.disparoSolicitado = false;
     return true;
   } catch {

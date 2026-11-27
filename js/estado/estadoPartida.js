@@ -93,6 +93,10 @@ export const estadoPartida = {
   // Entradas activas que las mecánicas consultarán en cada actualización.
   entradas: {
     teclasPresionadas: new Set(),
+    saltosSolicitados: {
+      corredor: false,
+      atrapador: false,
+    },
     puntero: { x: 0, y: 0 },
     disparoSolicitado: false,
   },
