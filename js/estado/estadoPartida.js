@@ -85,4 +85,11 @@ export const estadoPartida = {
     tipo: null,
     mensaje: "",
   },
+
+  // Entradas activas que las mecánicas consultarán en cada actualización.
+  entradas: {
+    teclasPresionadas: new Set(),
+    puntero: { x: 0, y: 0 },
+    disparoSolicitado: false,
+  },
 };
