@@ -1,3 +1,5 @@
+import { dibujarHabilidades } from "./dibujarHabilidades.js";
+
 /**
  * Carga una imagen antes de intentar dibujarla.
  * @param {string} ruta
@@ -41,5 +43,7 @@ export async function crearRenderizadorPartida(canvas, estado) {
         jugador.alto,
       );
     });
+
+    dibujarHabilidades(contexto, estado);
   };
 }
