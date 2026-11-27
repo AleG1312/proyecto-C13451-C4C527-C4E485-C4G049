@@ -25,33 +25,35 @@
         <section class="podio">
             <h2 class="podio__titulo">Marcador final</h2>
 
-            <p class="podio__ganador"><strong>Ganador de la partida:</strong> Jugador 1</p>
+            <p class="podio__ganador"><strong>Ganador de la partida:</strong> <span id="ganador-partida">Pendiente</span></p>
 
             <!-- 1.er lugar: escalón más alto -->
             <article class="puesto puesto--primero">
-                <h3 class="puesto__nombre">Jugador 1</h3>
+                <h3 class="puesto__nombre" id="primer-puesto-nombre">Jugador</h3>
                 <img src="assets/creeper-azul.jpg"
-                    alt="Corredor"
+                    alt="Jugador en primer lugar"
+                    id="primer-puesto-imagen"
                     class="puesto__avatar"
                     width="64"
                     height="64" />
                 <div class="puesto__escalon">
                     <p class="puesto__lugar">1.º lugar</p>
-                    <p class="puesto__rondas">Rondas ganadas: 12</p>
+                    <p class="puesto__rondas">Rondas ganadas: <span id="primer-puesto-puntaje">0</span></p>
                 </div>
             </article>
 
             <!-- 2.º lugar: escalón más bajo -->
             <article class="puesto">
-                <h3 class="puesto__nombre">Jugador 2</h3>
+                <h3 class="puesto__nombre" id="segundo-puesto-nombre">Jugador</h3>
                 <img src="assets/creeper-verde.jpg"
-                    alt="Atrapador"
+                    alt="Jugador en segundo lugar"
+                    id="segundo-puesto-imagen"
                     class="puesto__avatar"
                     width="48"
                     height="48" />
                 <div class="puesto__escalon">
                     <p class="puesto__lugar">2.º lugar</p>
-                    <p class="puesto__rondas">Rondas ganadas: 8</p>
+                    <p class="puesto__rondas">Rondas ganadas: <span id="segundo-puesto-puntaje">0</span></p>
                 </div>
             </article>
         </section>

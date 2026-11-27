@@ -6,6 +6,7 @@ import {
 } from "./estado/persistencia.js";
 import { registrarControles } from "./entrada/controles.js";
 import { actualizarTemporizador } from "./interfaz/temporizador.js";
+import { actualizarIndicadorRonda } from "./interfaz/indicadorRonda.js";
 import { crearRenderizadorPartida } from "./interfaz/renderizarPartida.js";
 import { iniciarCicloJuego } from "./juego/cicloJuego.js";
 import { actualizarMovimiento } from "./juego/movimiento.js";
@@ -67,6 +68,7 @@ async function iniciarJuego() {
   registrarControles(estadoPartida, canvas);
   const renderizar = await crearRenderizadorPartida(canvas, estadoPartida);
   estadoPartida.fase = "jugando";
+  actualizarIndicadorRonda(estadoPartida);
   actualizarTemporizador(estadoPartida);
   renderizar();
   iniciarCicloJuego(estadoPartida, actualizarPartida, renderizar);
