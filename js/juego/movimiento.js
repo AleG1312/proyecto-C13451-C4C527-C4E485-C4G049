@@ -1,4 +1,5 @@
 import { CONTROLES } from "../entrada/controles.js";
+import { obtenerFactorVelocidad } from "./recargas.js";
 
 // Valores compartidos para un movimiento uniforme en ambos personajes.
 const VELOCIDAD_HORIZONTAL = 240;
@@ -25,6 +26,7 @@ function obtenerDireccion(teclas, controles) {
  * @param {number} deltaSegundos
  * @param {number} anchoMapa
  * @param {number} altoMapa
+ * @param {number} factorVelocidad
  */
 function moverJugador(
   jugador,
@@ -34,9 +36,10 @@ function moverJugador(
   deltaSegundos,
   anchoMapa,
   altoMapa,
+  factorVelocidad,
 ) {
   const direccion = obtenerDireccion(teclas, controles);
-  jugador.velocidad.x = direccion * VELOCIDAD_HORIZONTAL;
+  jugador.velocidad.x = direccion * VELOCIDAD_HORIZONTAL * factorVelocidad;
 
   // La velocidad inicial produce una altura de 2.5 veces el personaje.
   if (saltoSolicitado && jugador.estaEnSuelo) {
@@ -75,6 +78,8 @@ export function actualizarMovimiento(estado, deltaMs) {
   const deltaSegundos = deltaMs / 1000;
 
   for (const rol of ["corredor", "atrapador"]) {
+    const jugador = estado.jugadores[rol];
+
     moverJugador(
       estado.jugadores[rol],
       CONTROLES[rol],
@@ -83,6 +88,7 @@ export function actualizarMovimiento(estado, deltaMs) {
       deltaSegundos,
       estado.mapa.ancho,
       estado.mapa.alto,
+      obtenerFactorVelocidad(jugador, estado.tiempo.ahoraMs),
     );
 
     // El intento se consume aunque el personaje estuviera en el aire.
