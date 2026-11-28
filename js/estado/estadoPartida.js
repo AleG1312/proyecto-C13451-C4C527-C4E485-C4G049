@@ -87,10 +87,10 @@ export const estadoPartida = {
   // Distingue una partida terminada desde el menú de pausa.
   finalizacionManual: false,
 
-  // Mensaje que la interfaz muestra como respuesta a una acción.
+  // Eventos recientes que la interfaz convierte en sonidos y animaciones.
   realimentacion: {
-    tipo: null,
-    mensaje: "",
+    eventos: [],
+    ultimoId: 0,
   },
 
   // Entradas activas que las mecánicas consultarán en cada actualización.

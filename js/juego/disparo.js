@@ -1,5 +1,6 @@
 import { obtenerObstaculos, obtenerRectangulo } from "./colisiones.js";
 import { estaDisponible, iniciarRecarga, ralentizar } from "./recargas.js";
+import { notificar } from "../estado/realimentacion.js";
 
 /** @typedef {import("../estado/tipos.js").Vector} Vector */
 /** @typedef {import("../estado/tipos.js").Rectangulo} Rectangulo */
@@ -104,7 +105,12 @@ export function actualizarDisparo(estado, ahoraMs) {
   const origen = calcularOrigen(atrapador);
   const direccion = calcularDireccion(origen, estado.entradas.puntero);
 
-  if (direccion === null || !estaDisponible(habilidadDisparo, ahoraMs)) {
+  if (!estaDisponible(habilidadDisparo, ahoraMs)) {
+    notificar(estado, "disparo-recarga");
+    return;
+  }
+
+  if (direccion === null) {
     return;
   }
 
@@ -118,8 +124,10 @@ export function actualizarDisparo(estado, ahoraMs) {
 
   if (acerto) {
     ralentizar(corredor, ahoraMs, RALENTIZACION_CORREDOR_MS);
+    notificar(estado, "disparo-acierto");
   } else {
     ralentizar(atrapador, ahoraMs, RALENTIZACION_ATRAPADOR_MS);
+    notificar(estado, "disparo-fallo");
   }
 
   const distanciaFinal = acerto ? impacto : alcance;

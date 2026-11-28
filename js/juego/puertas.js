@@ -1,4 +1,5 @@
 import { obtenerRectangulo, seSolapan } from "./colisiones.js";
+import { notificar } from "../estado/realimentacion.js";
 
 /** @typedef {import("../estado/tipos.js").Puerta} Puerta */
 /** @typedef {import("../estado/tipos.js").Jugador} Jugador */
@@ -54,6 +55,7 @@ function cerrarPuerta(puerta, corredor, ahoraMs) {
  * @param {Puerta} puerta
  * @param {Jugador} corredor
  * @param {number} ahoraMs
+ * @returns {boolean} Indica si la puerta se cerró en este cuadro.
  */
 function contarPermanencia(puerta, corredor, ahoraMs) {
   if (!seSolapan(obtenerRectangulo(corredor), puerta)) {
@@ -62,7 +64,10 @@ function contarPermanencia(puerta, corredor, ahoraMs) {
     puerta.cierraEnMs = ahoraMs + PERMANENCIA_PARA_CERRAR_MS;
   } else if (ahoraMs >= puerta.cierraEnMs) {
     cerrarPuerta(puerta, corredor, ahoraMs);
+    return true;
   }
+
+  return false;
 }
 
 /**
@@ -75,7 +80,9 @@ export function actualizarPuertas(estado, ahoraMs) {
 
   for (const puerta of estado.mapa.puertas) {
     if (puerta.abierta) {
-      contarPermanencia(puerta, corredor, ahoraMs);
+      if (contarPermanencia(puerta, corredor, ahoraMs)) {
+        notificar(estado, "puerta-cerrada");
+      }
     } else {
       reabrirSiCorresponde(puerta, ahoraMs);
     }

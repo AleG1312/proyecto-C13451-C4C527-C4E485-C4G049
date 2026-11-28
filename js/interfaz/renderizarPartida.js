@@ -1,4 +1,6 @@
 import { dibujarHabilidades } from "./dibujarHabilidades.js";
+import { crearPaletaMapa, dibujarMapa } from "./dibujarMapa.js";
+import { dibujarEfectos } from "./efectos.js";
 
 /**
  * Carga una imagen antes de intentar dibujarla.
@@ -15,7 +17,7 @@ function cargarImagen(ruta) {
 }
 
 /**
- * Prepara una función que dibuja los personajes según su estado actual.
+ * Prepara una función que dibuja el mapa y los personajes según el estado.
  * @param {HTMLCanvasElement} canvas
  * @param {import("../estado/tipos.js").EstadoPartida} estado
  */
@@ -30,9 +32,11 @@ export async function crearRenderizadorPartida(canvas, estado) {
     corredor: await cargarImagen(estado.jugadores.corredor.apariencia.imagen),
     atrapador: await cargarImagen(estado.jugadores.atrapador.apariencia.imagen),
   };
+  const paletaMapa = crearPaletaMapa();
 
   return function renderizarPartida() {
     contexto.clearRect(0, 0, canvas.width, canvas.height);
+    dibujarMapa(contexto, estado.mapa, paletaMapa);
 
     Object.entries(estado.jugadores).forEach(([rol, jugador]) => {
       contexto.drawImage(
@@ -45,5 +49,6 @@ export async function crearRenderizadorPartida(canvas, estado) {
     });
 
     dibujarHabilidades(contexto, estado);
+    dibujarEfectos(contexto, estado);
   };
 }

@@ -2,6 +2,9 @@
 /** @typedef {import("../estado/tipos.js").Jugador} Jugador */
 /** @typedef {import("../estado/tipos.js").Mapa} Mapa */
 
+// Coordenada mínima del área jugable en ambos ejes.
+const LIMITE_INICIAL_MAPA = 0;
+
 /**
  * Convierte la zona de colisión de un jugador en un rectángulo.
  * @param {Jugador} jugador

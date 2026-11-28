@@ -7,6 +7,7 @@ import {
 import { registrarControles } from "./entrada/controles.js";
 import { actualizarTemporizador } from "./interfaz/temporizador.js";
 import { actualizarIndicadorRonda } from "./interfaz/indicadorRonda.js";
+import { actualizarMarcador } from "./interfaz/marcador.js";
 import { crearRenderizadorPartida } from "./interfaz/renderizarPartida.js";
 import { configurarMenuPausa } from "./interfaz/menuPausa.js";
 import { iniciarCicloJuego } from "./juego/cicloJuego.js";
@@ -15,6 +16,9 @@ import { actualizarMovimiento } from "./juego/movimiento.js";
 import { actualizarPuertas } from "./juego/puertas.js";
 import { actualizarDash } from "./juego/dash.js";
 import { actualizarDisparo } from "./juego/disparo.js";
+import { limpiarRealimentacion } from "./estado/realimentacion.js";
+import { atenderEventosNuevos } from "./interfaz/efectos.js";
+import { prepararSonidos } from "./interfaz/sonidos.js";
 import {
   evaluarFinDeRonda,
   prepararSiguienteRonda,
@@ -98,9 +102,19 @@ async function iniciarJuego() {
     finalizarPartidaDesdePausa,
   );
   registrarControles(estadoPartida, canvas, menuPausa.alternar);
-  const renderizar = await crearRenderizadorPartida(canvas, estadoPartida);
+  const renderizarCanvas = await crearRenderizadorPartida(canvas, estadoPartida);
+
+  /** Dibuja el canvas y suena los eventos nuevos a partir del estado. */
+  function renderizar() {
+    renderizarCanvas();
+    atenderEventosNuevos(estadoPartida);
+  }
+
+  limpiarRealimentacion(estadoPartida);
+  prepararSonidos();
   estadoPartida.fase = "jugando";
   actualizarIndicadorRonda(estadoPartida);
+  actualizarMarcador(estadoPartida);
   actualizarTemporizador(estadoPartida);
   renderizar();
   iniciarCicloJuego(estadoPartida, actualizarPartida, renderizar);

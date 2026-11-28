@@ -96,6 +96,19 @@ main > section > h2 {
   background-color: var(--color-fondo);
 }
 
+/* Un subtítulo por jugador, para que cada uno encuentre sus teclas. */
+.controles__titulo {
+  margin: var(--espacio-md) 0 var(--espacio-sm);
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid var(--color-secundario);
+}
+
+/* Las teclas conservan la fuente del sitio y se leen en negrita. */
+.controles kbd {
+  font-family: inherit;
+  font-weight: bold;
+}
+
 /* Los paneles aparecen subiendo un poco. */
 @keyframes reglas-aparecer {
   from {
@@ -110,8 +123,11 @@ main > section > h2 {
     padding-left: calc(var(--reglas-ancho-tecla) + var(--espacio-sm));
   }
 
+  /* Las combinaciones largas (como la del dash) se parten en líneas en vez
+     de invadir la descripción. */
   .controles strong {
     float: left;
+    max-width: var(--reglas-ancho-tecla);
     margin: 0 0 0 calc(-1 * (var(--reglas-ancho-tecla) + var(--espacio-sm)));
   }
 }

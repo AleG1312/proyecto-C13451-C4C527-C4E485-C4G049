@@ -137,6 +137,27 @@ body > footer p {
   height: clamp(1rem, 3vw, 1.5rem);
 }
 
+/* Realimentación de errores: la barra de una habilidad en recarga se
+   sacude y suena un "bzz", así que el aviso no depende del color. El
+   bloque prefers-reduced-motion de common.css apaga la sacudida. */
+.jugador__barra--sacudida {
+  animation: sacudir-barra 300ms ease-in-out;
+}
+
+@keyframes sacudir-barra {
+  25% {
+    transform: translateX(-0.4rem);
+  }
+
+  50% {
+    transform: translateX(0.4rem);
+  }
+
+  75% {
+    transform: translateX(-0.2rem);
+  }
+}
+
 /* Zona de jugadores abajo: un jugador a la izquierda y otro a la derecha,
    sobre la misma línea horizontal. */
 .jugadores {

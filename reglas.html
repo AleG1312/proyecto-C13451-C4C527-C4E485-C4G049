@@ -48,8 +48,9 @@
           <p>El atrapador puede disparar un arma. La bala recorre una línea recta de
             forma instantánea, así que solo acierta si el corredor está en la trayectoria
             en el momento del disparo. En caso de acertar, el corredor es afectado con
-            una disminución de su velocidad. El arma tiene un tiempo de recarga entre disparos y no
-            hay límite de disparos por partida.</p>
+            una disminución de su velocidad. Si falla, el que queda más lento por
+            un momento es el atrapador. El arma tiene un tiempo de recarga entre
+            disparos y no hay límite de disparos por partida.</p>
         </li>
 
         <li class="reglas__item">
@@ -81,30 +82,61 @@
     <section id="controles">
       <h2>Controles</h2>
 
+      <p>Los dos jugadores comparten el mismo teclado: el corredor usa el lado
+        izquierdo y el atrapador las flechas y el ratón.</p>
+
+      <h3 class="controles__titulo">Corredor</h3>
       <ul class="controles">
         <li>
-          <strong>A D / &#8592; &#8594;: </strong>
-          Moverse hacia los lados del mapa.
+          <strong><kbd>A</kbd> / <kbd>D</kbd></strong>
+          Moverse a la izquierda o a la derecha.
         </li>
         <li>
-          <strong>&#8593; / W: </strong>
+          <strong><kbd>W</kbd></strong>
           Saltar.
         </li>
         <li>
-          <strong>S / &#8595;: </strong> 
-          Descender una plataforma.
+          <strong><kbd>S</kbd></strong>
+          Descender de una plataforma.
         </li>
         <li>
-          <strong>Shift + dirección: </strong>
-          Hacer un <em>dash</em> en esa dirección. Solo puede hacerlo el corredor.
+          <strong><kbd>Shift</kbd> izquierdo + <kbd>A</kbd>, <kbd>D</kbd>,
+            <kbd>W</kbd> o <kbd>S</kbd></strong>
+          Hacer un <em>dash</em> en esa dirección. Primero se mantiene la
+          dirección y luego se presiona <kbd>Shift</kbd>.
+        </li>
+      </ul>
+
+      <h3 class="controles__titulo">Atrapador</h3>
+      <ul class="controles">
+        <li>
+          <strong><kbd>&#8592;</kbd> / <kbd>&#8594;</kbd></strong>
+          Moverse a la izquierda o a la derecha.
         </li>
         <li>
-          <strong>Clic izquierdo: </strong>
-          Disparar hacia donde apunta el ratón. Solo puede hacerlo el atrapador.
+          <strong><kbd>&#8593;</kbd></strong>
+          Saltar.
         </li>
         <li>
-          <strong>Esc: </strong>
-          Abrir el menú de pausa.
+          <strong><kbd>&#8595;</kbd></strong>
+          Descender de una plataforma.
+        </li>
+        <li>
+          <strong>Clic izquierdo</strong>
+          Disparar hacia donde apunta el ratón dentro del área de juego.
+        </li>
+      </ul>
+
+      <h3 class="controles__titulo">Pausa</h3>
+      <ul class="controles">
+        <li>
+          <strong><kbd>Esc</kbd></strong>
+          Abrir el menú de pausa o cerrarlo para seguir jugando.
+        </li>
+        <li>
+          <strong><kbd>&#8593;</kbd> / <kbd>&#8595;</kbd> y <kbd>Enter</kbd></strong>
+          Elegir una opción del menú de pausa: reanudar, volver al menú
+          principal o terminar la partida.
         </li>
       </ul>
     </section>

@@ -1,6 +1,7 @@
 import { CONTROLES } from "../entrada/controles.js";
 import { chocaConObstaculo, obtenerRectangulo } from "./colisiones.js";
 import { estaDisponible, iniciarRecarga } from "./recargas.js";
+import { notificar } from "../estado/realimentacion.js";
 
 /** @typedef {import("../estado/tipos.js").Vector} Vector */
 /** @typedef {import("../estado/tipos.js").Jugador} Jugador */
@@ -103,15 +104,25 @@ export function actualizarDash(estado, ahoraMs) {
   const habilidadDash = corredor.habilidades.dash;
   const direccion = obtenerDireccionDash(estado.entradas.teclasPresionadas);
 
-  if (direccion === null || !estaDisponible(habilidadDash, ahoraMs)) {
+  if (!estaDisponible(habilidadDash, ahoraMs)) {
+    notificar(estado, "dash-recarga");
     return;
   }
 
+  if (direccion === null) {
+    notificar(estado, "dash-sin-direccion");
+    return;
+  }
+
+  const origen = { ...corredor.posicion };
+
   // Si no pudo moverse (por ejemplo, hacia el suelo) no gasta la recarga.
   if (!desplazarCorredor(corredor, direccion, estado.mapa)) {
+    notificar(estado, "dash-bloqueado");
     return;
   }
 
   ajustarEstadoVertical(corredor, direccion);
   iniciarRecarga(habilidadDash, ahoraMs);
+  notificar(estado, "dash", origen);
 }

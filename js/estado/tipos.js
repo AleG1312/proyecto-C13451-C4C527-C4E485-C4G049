@@ -59,6 +59,30 @@
  */
 
 /**
+ * Acción de un jugador que merece sonido y animación.
+ * Los terminados en "-recarga", "-sin-direccion" y "-bloqueado" son errores.
+ * @typedef {"dash"|"dash-recarga"|"dash-sin-direccion"|
+ *   "dash-bloqueado"|"disparo-acierto"|"disparo-fallo"|"disparo-recarga"|
+ *   "puerta-cerrada"} TipoEvento
+ */
+
+/**
+ * Algo que ocurrió en la ronda y que la interfaz debe hacer notar.
+ * @typedef {Object} EventoRealimentacion
+ * @property {number} id - Número creciente para no repetir un efecto.
+ * @property {TipoEvento} tipo - Qué ocurrió.
+ * @property {number} instanteMs - Momento de la ronda en que ocurrió.
+ * @property {Vector} [origen] - Dónde empezó el movimiento (solo en el dash).
+ */
+
+/**
+ * Eventos recientes de éxito o error para los jugadores.
+ * @typedef {Object} Realimentacion
+ * @property {EventoRealimentacion[]} eventos - Eventos del último segundo.
+ * @property {number} ultimoId - Id del evento más reciente.
+ */
+
+/**
  * Estado completo y única fuente de verdad de la partida.
  * @typedef {Object} EstadoPartida
  * @property {"preparacion"|"jugando"|"pausado"|"fin-ronda"|"fin-partida"} fase
@@ -69,7 +93,7 @@
  * @property {{corredor: number, atrapador: number}} puntajes
  * @property {"corredor"|"atrapador"|null} ganadorPartida
  * @property {boolean} finalizacionManual - Indica si se terminó desde la pausa.
- * @property {{tipo: "exito"|"error"|"informacion"|null, mensaje: string}} realimentacion
+ * @property {Realimentacion} realimentacion
  * @property {{teclasPresionadas: Set<string>, saltosSolicitados: {corredor: boolean, atrapador: boolean}, puntero: Vector, disparoSolicitado: boolean}} entradas
  */
 
